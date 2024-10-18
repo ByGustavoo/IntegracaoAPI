@@ -1,0 +1,9 @@
+# Ignorar diretórios de build do Gradle
+/build/
+/.gradle/
+
+# Ignorar arquivos de configuração do IntelliJ
+/.idea/
+
+# Ignorar arquivos de classe Java compilados
+*.class
