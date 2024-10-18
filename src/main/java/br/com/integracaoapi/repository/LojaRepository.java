@@ -1,5 +1,10 @@
 package br.com.integracaoapi.repository;
 
-public class LojaRepository {
+import br.com.integracaoapi.model.entity.Loja;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface LojaRepository extends JpaRepository<Loja, Integer> {
 
 }
