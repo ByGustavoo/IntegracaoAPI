@@ -1,6 +1,7 @@
 package br.com.integracaoapi.model.dto;
 
 import br.com.integracaoapi.model.entity.Fornecedor;
+import br.com.integracaoapi.model.entity.Loja;
 import br.com.integracaoapi.model.entity.Regiao;
 import br.com.integracaoapi.model.entity.SituacaoCadastro;
 import jakarta.validation.constraints.NotNull;
@@ -8,7 +9,7 @@ import jakarta.validation.constraints.Size;
 
 public record LojaDTO(
 
-        int id,
+        Integer id,
 
         @NotNull
         @Size(max = 25)
@@ -41,4 +42,19 @@ public record LojaDTO(
         Boolean atacado
 
 ) {
+        public LojaDTO(Loja loja) {
+                this(
+                  loja.getId(),
+                  loja.getDescricao(),
+                  loja.getFornecedor(),
+                  loja.getSituacaoCadastro(),
+                  loja.getNomeServidor(),
+                  loja.getRegiao(),
+                  loja.getServidorCentral(),
+                  loja.getGeraConcentrador(),
+                  loja.getEstoqueTerceiro(),
+                  loja.getLojaVirtual(),
+                  loja.getAtacado()
+                );
+        }
 }

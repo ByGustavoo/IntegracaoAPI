@@ -23,13 +23,13 @@ public class Loja {
     private String descricao;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_fornecedor")
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "id_fornecedor", nullable = false)
     private Fornecedor fornecedor;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_situacaocadastro")
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "id_situacaocadastro", nullable = false)
     private SituacaoCadastro situacaoCadastro;
 
     @NotNull
@@ -38,25 +38,25 @@ public class Loja {
     private String nomeServidor;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_regiao", nullable = false)
     private Regiao regiao;
 
     @NotNull
     @Column(name = "servidorcentral", nullable = false)
-    private boolean servidorCentral;
+    private Boolean servidorCentral;
 
     @NotNull
     @Column(name = "geraconcentrador", nullable = false)
-    private boolean geraConcentrador;
+    private Boolean geraConcentrador;
 
     @Column(name = "estoqueterceiro")
-    private boolean estoqueTerceiro;
+    private Boolean estoqueTerceiro;
 
     @Column(name = "lojavirtual")
-    private boolean lojaVirtual;
+    private Boolean lojaVirtual;
 
     @NotNull
     @Column(name = "atacado", nullable = false)
-    private boolean atacado;
+    private Boolean atacado;
 }
