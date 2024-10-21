@@ -9,8 +9,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "regiao", schema = "public")
-public class Regiao {
+@Table(name = "indicativosenar", schema = "public")
+public class IndicativoSenar {
 
     @Id
     @Column(name = "id", nullable = false)

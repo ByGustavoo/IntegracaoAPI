@@ -1,12 +1,13 @@
 package br.com.integracaoapi.model.entity;
 
+import lombok.Getter;
+import lombok.Setter;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
-
 import java.math.BigDecimal;
+import java.time.Instant;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -45,7 +46,7 @@ public class Fornecedor {
     private Municipio municipio;
 
     @NotNull
-    @Column(name = "cep", precision = 8)
+    @Column(name = "cep", precision = 8, nullable = false)
     private BigDecimal cep;
 
     @NotNull
@@ -74,7 +75,7 @@ public class Fornecedor {
 
     @NotNull
     @Column(name = "revenda", nullable = false)
-    private Boolean revenda;
+    private Boolean revenda = false;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -88,7 +89,7 @@ public class Fornecedor {
 
     @NotNull
     @Column(name = "numerodoc", nullable = false)
-    private Integer numerodoc;
+    private Integer numeroDoc;
 
     @NotNull
     @Column(name = "pedidominimoqtd", nullable = false)
@@ -100,18 +101,18 @@ public class Fornecedor {
 
     @NotNull
     @Size(max = 4)
-    @Column(name = "serienf", length = 4, nullable = false)
+    @Column(name = "serienf", length = 4,  nullable = false)
     private String serienf;
 
     @NotNull
     @Column(name = "descontofunrural", nullable = false)
-    private Boolean descontoFunRural;
+    private Boolean descontoFunRural = false;
 
     @NotNull
     @Column(name = "senha", nullable = false)
     private Integer senha;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_tiporecebimento")
     private TipoRecebimento tipoRecebimento;
 
@@ -122,7 +123,7 @@ public class Fornecedor {
 
     @NotNull
     @Size(max = 2)
-    @Column(name = "digitoAgencia", length = 2, nullable = false)
+    @Column(name = "digitoagencia", length = 2,  nullable = false)
     private String digitoAgencia;
 
     @NotNull
@@ -132,46 +133,216 @@ public class Fornecedor {
 
     @NotNull
     @Size(max = 2)
-    @Column(name = "digitoconta", length = 2, nullable = false)
+    @Column(name = "digitoconta", nullable = false, length = 2)
     private String digitoConta;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_banco")
     private Banco banco;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_fornecedorfavorecido")
     private Fornecedor fornecedorFavorecido;
 
-    @NotNull
     @Size(max = 40)
-    @Column(name = "enderecocobranca", length = 40, nullable = false)
+    @NotNull
+    @Column(name = "enderecocobranca", nullable = false, length = 40)
     private String enderecoCobranca;
 
-    @NotNull
     @Size(max = 30)
-    @Column(name = "bairrocobranca", length = 30, nullable = false)
+    @NotNull
+    @Column(name = "bairrocobranca", nullable = false, length = 30)
     private String bairroCobranca;
 
     @NotNull
-    @Column(name = "cepcobranca", precision = 18, nullable = false)
+    @Column(name = "cepcobranca", nullable = false, precision = 18)
     private BigDecimal cepCobranca;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_municipiocobranca")
     private Municipio municipioCobranca;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_estadocobranca")
     private Estado estadoCobranca;
 
     @NotNull
     @Column(name = "bloqueado", nullable = false)
-    private Boolean bloqueado;
+    private Boolean bloqueado = false;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_tipomotivofornecedor")
     private TipoMotivoFornecedor tipoMotivoFornecedor;
 
-    //@NotNull o optional tem que ser 'true'
+    @Column(name = "datasintegra")
+    private Instant datasIntegra;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_tipoempresa", nullable = false)
+    private TipoEmpresa tipoEmpresa;
+
+    @Size(max = 9)
+    @NotNull
+    @Column(name = "inscricaosuframa", nullable = false, length = 9)
+    private String inscricaoSuframa;
+
+    @NotNull
+    @Column(name = "utilizaiva", nullable = false)
+    private Boolean utilizaIva = false;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_familiafornecedor")
+    private FamiliaFornecedor familiaFornecedor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_tipoinspecao")
+    private TipoInspecao tipoInspecao;
+
+    @NotNull
+    @Column(name = "numeroinspecao", nullable = false)
+    private Integer numeroInspecao;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_tipotroca")
+    private TipoTroca tipoTroca;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_tipofornecedor", nullable = false)
+    private TipoFornecedor tipoFornecedor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_contacontabilfinanceiro")
+    private ContaContabilFinanceiro contaContabilFinanceiro;
+
+    @NotNull
+    @Column(name = "utilizanfe", nullable = false)
+    private Boolean utilizaNfe = false;
+
+    @NotNull
+    @Column(name = "datacadastro", nullable = false)
+    private LocalDate dataCadastro;
+
+    @NotNull
+    @Column(name = "utilizaconferencia", nullable = false)
+    private Boolean utilizaConferencia = false;
+
+    @Size(max = 6)
+    @NotNull
+    @Column(name = "numero", nullable = false, length = 6)
+    private String numero;
+
+    @NotNull
+    @Column(name = "permitenfsempedido", nullable = false)
+    private Boolean permiteNfSemPedido = false;
+
+    @Size(max = 2)
+    @NotNull
+    @Column(name = "modelonf", nullable = false, length = 2)
+    private String modeloNf;
+
+    @NotNull
+    @Column(name = "emitenf", nullable = false)
+    private Boolean emiteNf = false;
+
+    @NotNull
+    @Column(name = "tiponegociacao", nullable = false)
+    private Integer tipoNegociacao;
+
+    @NotNull
+    @Column(name = "utilizacrossdocking", nullable = false)
+    private Boolean utilizaCrossDocking = false;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_lojacrossdocking")
+    private Loja lojaCrossDocking;
+
+    @Size(max = 2500)
+    @NotNull
+    @Column(name = "observacao", length = 2500, nullable = false)
+    private String observacao;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_pais", nullable = false)
+    private Pais pais;
+
+    @Size(max = 20)
+    @Column(name = "inscricaomunicipal", length = 20)
+    private String inscricaoMunicipal;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_contacontabilfiscalpassivo")
+    private ContaContabilFiscal contaContabilFiscalPassivo;
+
+    @Size(max = 6)
+    @NotNull
+    @Column(name = "numerocobranca", length = 6, nullable = false)
+    private String numeroCobranca;
+
+    @Size(max = 30)
+    @NotNull
+    @Column(name = "complemento", length = 30, nullable = false)
+    private String complemento;
+
+    @Size(max = 30)
+    @NotNull
+    @Column(name = "complementocobranca", length = 30, nullable = false)
+    private String complementoCobranca;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_contacontabilfiscalativo")
+    private ContaContabilFiscal contaContabilFiscalAtivo;
+
+    @NotNull
+    @Column(name = "utilizaedi", nullable = false)
+    private Boolean utilizaEdi = false;
+
+    @NotNull
+    @Column(name = "tiporegravencimento", nullable = false)
+    private Integer tipoRegraVencimento;
+
+    @Column(name = "nfemitidapostofiscal")
+    private Boolean nfEmitidaPostoFiscal;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_tipoindicadorie")
+    private TipoIndicadorie tipoIndicadorie;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_indicativocprb")
+    private IndicativoCprb indicativoCprb;
+
+    @Column(name = "utilizaprodepe")
+    private Boolean utilizaProdepe;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_tiponegociacaocompra", nullable = false)
+    private TipoNegociacaoCompra tipoNegociacaoCompra;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_tipocustodevolucaotroca")
+    private TipoCustoDevolucaoTroca tipoCustoDevolucaoTroca;
+
+    @Column(name = "alteradopaf")
+    private Boolean alteradoPaf;
+
+    @Column(name = "cpfprodutorrural", precision = 11)
+    private BigDecimal cpfProdutorRural;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_indicativosenar")
+    private IndicativoSenar indicativoSenar;
+
+    @NotNull
+    @Column(name = "antecipacaopagamento", nullable = false)
+    private Boolean antecipacaoPagamento = false;
+
+    @Column(name = "percentualcreditoicmssn", precision = 11, scale = 2)
+    private BigDecimal percentualCreditoIcmssn;
+
+    @Column(name = "valormaximoverbapedido", precision = 11, scale = 2)
+    private BigDecimal valorMaximoVerbaPedido;
 }
