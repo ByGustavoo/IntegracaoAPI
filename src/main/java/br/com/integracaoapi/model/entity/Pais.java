@@ -9,8 +9,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "regiao", schema = "public")
-public class Regiao {
+@Table(name = "pais", schema = "public")
+public class Pais {
 
     @Id
     @Column(name = "id", nullable = false)
@@ -18,7 +18,10 @@ public class Regiao {
     private Integer id;
 
     @NotNull
-    @Size(max = 30)
-    @Column(name = "descricao", length = 30, nullable = false)
+    @Size(max = 50)
+    @Column(name = "descricao", length = 50, nullable = false)
     private String descricao;
+
+    @Column(name = "codigosped")
+    private Integer codigoSped;
 }

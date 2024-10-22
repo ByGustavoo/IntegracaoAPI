@@ -1,60 +1,62 @@
 package br.com.integracaoapi.model.dto;
 
-import br.com.integracaoapi.model.entity.Fornecedor;
 import br.com.integracaoapi.model.entity.Loja;
-import br.com.integracaoapi.model.entity.Regiao;
-import br.com.integracaoapi.model.entity.SituacaoCadastro;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-public record LojaDTO(
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class LojaDTO {
 
-        Integer id,
+        private Integer id;
 
         @NotNull
         @Size(max = 25)
-        String descricao,
+        private String descricao;
 
         @NotNull
-        Fornecedor fornecedor,
+        private FornecedorDTO fornecedor;
 
         @NotNull
-        SituacaoCadastro situacaoCadastro,
+        private SituacaoCadastroDTO situacaoCadastro;
 
         @NotNull
         @Size(max = 30)
-        String nomeServidor,
+        private String nomeServidor;
 
         @NotNull
-        Regiao regiao,
+        private RegiaoDTO regiao;
 
         @NotNull
-        Boolean servidorCentral,
+        private Boolean servidorCentral;
 
         @NotNull
-        Boolean geraConcentrador,
+        private Boolean geraConcentrador;
 
-        Boolean estoqueTerceiro,
+        private Boolean estoqueTerceiro;
 
-        Boolean lojaVirtual,
+        private Boolean lojaVirtual;
 
         @NotNull
-        Boolean atacado
+        private Boolean atacado;
 
-) {
         public LojaDTO(Loja loja) {
-                this(
-                  loja.getId(),
-                  loja.getDescricao(),
-                  loja.getFornecedor(),
-                  loja.getSituacaoCadastro(),
-                  loja.getNomeServidor(),
-                  loja.getRegiao(),
-                  loja.getServidorCentral(),
-                  loja.getGeraConcentrador(),
-                  loja.getEstoqueTerceiro(),
-                  loja.getLojaVirtual(),
-                  loja.getAtacado()
-                );
+                this.id = loja.getId();
+                this.descricao = loja.getDescricao();
+                this.fornecedor = new FornecedorDTO(loja.getFornecedor());
+                this.situacaoCadastro = new SituacaoCadastroDTO(loja.getSituacaoCadastro());
+                this.nomeServidor = loja.getNomeServidor();
+                this.regiao = new RegiaoDTO(loja.getRegiao());
+                this.servidorCentral = loja.getServidorCentral();
+                this.geraConcentrador = loja.getGeraConcentrador();
+                this.estoqueTerceiro = loja.getEstoqueTerceiro();
+                this.lojaVirtual = loja.getLojaVirtual();
+                this.atacado = loja.getAtacado();
         }
 }
