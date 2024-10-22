@@ -1,7 +1,6 @@
 package br.com.integracaoapi.model.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,16 +8,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "regiao", schema = "public")
-public class Regiao {
+@Table(name = "tipocrt", schema = "public")
+public class TipoCrt {
 
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull
-    @Size(max = 30)
-    @Column(name = "descricao", length = 30, nullable = false)
+    @Size(max = 60)
+    @Column(name = "descricao", length = 60)
     private String descricao;
 }
