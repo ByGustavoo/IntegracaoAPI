@@ -1,29 +1,43 @@
 package br.com.integracaoapi.model.dto;
 
+import br.com.integracaoapi.model.entity.TipoEmpresa;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
-public record TipoEmpresaDTO(
+@Getter
+@Setter
+public class TipoEmpresaDTO {
 
-        Integer id,
+    private Integer id;
 
-        @NotNull
-        @Size(max = 35)
-        String descricao,
+    @NotNull
+    @Size(max = 35)
+    private String descricao;
 
-        @NotNull
-        Boolean creditaIcms,
+    @NotNull
+    private Boolean creditaIcms;
 
-        @NotNull
-        Boolean creditaPisCofins,
+    @NotNull
+    private Boolean creditaPisCofins;
 
-        @NotNull
-        Boolean naoUtilizaReducao,
+    @NotNull
+    private Boolean naoUtilizaReducao;
 
-        @NotNull
-        Boolean produtorRural,
+    @NotNull
+    private Boolean produtorRural;
 
-        @NotNull
-        TipoCrtDTO tipoCrt
-) {
+    @NotNull
+    private TipoCrtDTO tipoCrt;
+
+    public TipoEmpresaDTO(TipoEmpresa tipoEmpresa) {
+        this.id = tipoEmpresa.getId();
+        this.descricao = tipoEmpresa.getDescricao();
+        this.creditaIcms = tipoEmpresa.getCreditaIcms();
+        this.creditaPisCofins = tipoEmpresa.getCreditaPisCofins();
+        this.naoUtilizaReducao = tipoEmpresa.getNaoUtilizaReducao();
+        this.produtorRural = tipoEmpresa.getProdutorRural();
+        this.tipoCrt = new TipoCrtDTO(tipoEmpresa.getTipoCrt());
+    }
 }

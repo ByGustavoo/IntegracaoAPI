@@ -1,257 +1,320 @@
 package br.com.integracaoapi.model.dto;
 
 import br.com.integracaoapi.model.entity.Fornecedor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 import java.math.BigDecimal;
+import java.time.Instant;
+import java.time.LocalDate;
 
+@Getter
+@Setter
 public class FornecedorDTO {
 
-    Integer id;
+    private Integer id;
 
     @NotNull
     @Size(max = 40)
-    String razaoSocial;
+    private String razaoSocial;
 
     @NotNull
     @Size(max = 30)
-    String nomeFantasia;
+    private String nomeFantasia;
 
     @NotNull
     @Size(max = 40)
-    String endereco;
+    private String endereco;
 
     @NotNull
     @Size(max = 30)
-    String bairro;
+    private String bairro;
 
     @NotNull
-    MunicipioDTO municipio;
+    private MunicipioDTO municipio;
 
     @NotNull
-    BigDecimal cep;
+    private BigDecimal cep;
 
     @NotNull
-    EstadoDTO estado;
+    private EstadoDTO estado;
 
     @NotNull
     @Size(max = 14)
-    String telefone;
+    private String telefone;
 
     @NotNull
-    TipoInscricaoDTO tipoInscricao;
+    private TipoInscricaoDTO tipoInscricao;
 
     @NotNull
     @Size(max = 20)
-    String inscricaoEstadual;
+    private String inscricaoEstadual;
 
     @NotNull
-    BigDecimal cnpj;
+    private BigDecimal cnpj;
 
     @NotNull
-    Boolean revenda;
+    private Boolean revenda;
 
     @NotNull
-    SituacaoCadastroDTO situacaoCadastro;
+    private SituacaoCadastroDTO situacaoCadastro;
 
     @NotNull
-    TipoPagamentoDTO tipoPagamento;
+    private TipoPagamentoDTO tipoPagamento;
 
     @NotNull
-    Integer numeroDoc;
+    private Integer numeroDoc;
 
     @NotNull
-    Integer pedidoMinimoQtd;
+    private Integer pedidoMinimoQtd;
 
     @NotNull
-    BigDecimal pedidoMinimoValor;
+    private BigDecimal pedidoMinimoValor;
 
     @NotNull
     @Size(max = 4)
-    String serienf;
+    private String serienf;
 
     @NotNull
-    Boolean descontoFunRural;
+    private Boolean descontoFunRural;
 
     @NotNull
-    Integer senha;
+    private Integer senha;
 
-    TipoRecebimentoDTO tipoRecebimento;
+    private TipoRecebimentoDTO tipoRecebimento;
 
     @NotNull
     @Size(max = 6)
-    String agencia;
+    private String agencia;
 
     @NotNull
     @Size(max = 2)
-    String digitoAgencia;
+    private String digitoAgencia;
 
     @NotNull
     @Size(max = 12)
-    String conta;
+    private String conta;
 
     @NotNull
     @Size(max = 2)
-    String digitoConta;
+    private String digitoConta;
 
-    BancoDTO banco;
+    private BancoDTO banco;
 
     @JsonIgnore
-    FornecedorDTO fornecedorFavorecido;
+    private FornecedorDTO fornecedorFavorecido;
 
     @NotNull
     @Size(max = 40)
-    String enderecoCobranca;
+    private String enderecoCobranca;
 
     @NotNull
     @Size(max = 30)
-    String bairroCobranca;
+    private String bairroCobranca;
 
     @NotNull
-    BigDecimal cepCobranca;
+    private BigDecimal cepCobranca;
 
-    MunicipioDTO municipioCobranca;
+    private MunicipioDTO municipioCobranca;
 
-    EstadoDTO estadoCobranca;
-
-    @NotNull
-    Boolean bloqueado;
-
-    TipoMotivoFornecedorDTO tipoMotivoFornecedor;
-
-    Instant datasIntegra;
+    private EstadoDTO estadoCobranca;
 
     @NotNull
-    TipoEmpresaDTO tipoEmpresa;
+    private Boolean bloqueado;
+
+    private TipoMotivoFornecedorDTO tipoMotivoFornecedor;
+
+    private Instant datasIntegra;
+
+    @NotNull
+    private TipoEmpresaDTO tipoEmpresa;
 
     @NotNull
     @Size(max = 9)
-    String inscricaoSuframa;
+    private String inscricaoSuframa;
 
     @NotNull
-    Boolean utilizaIva;
+    private Boolean utilizaIva;
 
-    FamiliaFornecedorDTO familiaFornecedor;
+    private FamiliaFornecedorDTO familiaFornecedor;
 
-    TipoInspecaoDTO tipoInspecao;
-
-    @NotNull
-    Integer numeroInspecao;
-
-    TipoTrocaDTO tipoTroca;
+    private TipoInspecaoDTO tipoInspecao;
 
     @NotNull
-    TipoFornecedorDTO tipoFornecedor;
+    private Integer numeroInspecao;
 
-    ContaContabilFinanceiroDTO contaContabilFinanceiro;
-
-    @NotNull
-    Boolean utilizaNfe;
+    private TipoTrocaDTO tipoTroca;
 
     @NotNull
-    LocalDate dataCadastro;
+    private TipoFornecedorDTO tipoFornecedor;
+
+    private ContaContabilFinanceiroDTO contaContabilFinanceiro;
 
     @NotNull
-    Boolean utilizaConferencia;
+    private Boolean utilizaNfe;
+
+    @NotNull
+    private LocalDate dataCadastro;
+
+    @NotNull
+    private Boolean utilizaConferencia;
 
     @NotNull
     @Size(max = 6)
-    String numero;
+    private String numero;
 
     @NotNull
-    Boolean permiteNfSemPedido;
+    private Boolean permiteNfSemPedido;
 
     @NotNull
     @Size(max = 2)
-    String modeloNf;
+    private String modeloNf;
 
     @NotNull
-    Boolean emiteNf;
+    private Boolean emiteNf;
 
     @NotNull
-    Integer tipoNegociacao;
+    private Integer tipoNegociacao;
 
     @NotNull
-    Boolean utilizaCrossDocking;
+    private Boolean utilizaCrossDocking;
 
-    LojaDTO lojaCrossDocking;
+    private LojaDTO lojaCrossDocking;
 
     @NotNull
     @Size(max = 2500)
-    String observacao;
+    private String observacao;
 
     @NotNull
-    PaisDTO pais;
+    private PaisDTO pais;
 
     @Size(max = 20)
-    String inscricaoMunicipal;
+    private String inscricaoMunicipal;
 
-    ContaContabilFiscalDTO contaContabilFiscalPassivo;
+    private ContaContabilFiscalDTO contaContabilFiscalPassivo;
 
     @NotNull
     @Size(max = 6)
-    String numeroCobranca;
+    private String numeroCobranca;
 
     @NotNull
     @Size(max = 30)
-    String complemento;
+    private String complemento;
 
     @NotNull
     @Size(max = 30)
-    String complementoCobranca;
+    private String complementoCobranca;
 
-    ContaContabilFiscalDTO contaContabilFiscalAtivo;
-
-    @NotNull
-    Boolean utilizaEdi;
+    private ContaContabilFiscalDTO contaContabilFiscalAtivo;
 
     @NotNull
-    Integer tipoRegraVencimento;
-
-    Boolean nfEmitidaPostoFiscal;
-
-    TipoIndicadorieDTO tipoIndicadorie;
-
-    IndicativoCprbDTO indicativoCprb;
-
-    Boolean utilizaProdepe;
+    private Boolean utilizaEdi;
 
     @NotNull
-    TipoNegociacaoCompraDTO tipoNegociacaoCompra;
+    private Integer tipoRegraVencimento;
 
-    TipoCustoDevolucaoTrocaDTO tipoCustoDevolucaoTroca;
+    private Boolean nfEmitidaPostoFiscal;
 
-    Boolean alteradoPaf;
+    private TipoIndicadorieDTO tipoIndicadorie;
 
-    BigDecimal cpfProdutorRural;
+    private IndicativoCprbDTO indicativoCprb;
 
-    IndicativoSenarDTO indicativoSenar;
+    private Boolean utilizaProdepe;
 
     @NotNull
-    Boolean antecipacaoPagamento;
+    private TipoNegociacaoCompraDTO tipoNegociacaoCompra;
 
-    BigDecimal percentualCreditoIcmssn;
+    private TipoCustoDevolucaoTrocaDTO tipoCustoDevolucaoTroca;
 
-    BigDecimal valorMaximoVerbaPedido;
+    private Boolean alteradoPaf;
 
+    private BigDecimal cpfProdutorRural;
+
+    private IndicativoSenarDTO indicativoSenar;
+
+    @NotNull
+    private Boolean antecipacaoPagamento;
+
+    private BigDecimal percentualCreditoIcmssn;
 
     public FornecedorDTO(Fornecedor fornecedor) {
-                fornecedor.getId(),
-                fornecedor.getRazaoSocial(),
-                fornecedor.getNomeFantasia(),
-                fornecedor.getEndereco(),
-                fornecedor.getBairro(),
-                new MunicipioDTO(fornecedor.getMunicipio()),
-                fornecedor.getCep(),
-                new EstadoDTO(fornecedor.getEstado()),
-                fornecedor.getTelefone(),
-                new TipoInscricaoDTO(fornecedor.getTipoInscricao()),
-                fornecedor.getInscricaoEstadual(),
-                fornecedor.getCnpj(),
-                fornecedor.getRevenda(),
-                new SituacaoCadastroDTO(fornecedor.getSituacaoCadastro()),
-                new TipoPagamentoDTO(fornecedor.getTipoPagamento()),
-                fornecedor.getNumeroDoc(),
-                fornecedor.getPedidoMinimoQtd();
+        this.id = fornecedor.getId();
+        this.razaoSocial = fornecedor.getRazaoSocial();
+        this.nomeFantasia = fornecedor.getNomeFantasia();
+        this.endereco = fornecedor.getEndereco();
+        this.bairro = fornecedor.getBairro();
+        this.municipio = new MunicipioDTO(fornecedor.getMunicipio());
+        this.cep = fornecedor.getCep();
+        this.estado = new EstadoDTO(fornecedor.getEstado());
+        this.telefone = fornecedor.getTelefone();
+        this.tipoInscricao = new TipoInscricaoDTO(fornecedor.getTipoInscricao());
+        this.inscricaoEstadual = fornecedor.getInscricaoEstadual();
+        this.cnpj = fornecedor.getCnpj();
+        this.revenda = fornecedor.getRevenda();
+        this.situacaoCadastro = new SituacaoCadastroDTO(fornecedor.getSituacaoCadastro());
+        this.tipoPagamento = new TipoPagamentoDTO(fornecedor.getTipoPagamento());
+        this.numeroDoc = fornecedor.getNumeroDoc();
+        this.pedidoMinimoQtd = fornecedor.getPedidoMinimoQtd();
+        this.pedidoMinimoValor = fornecedor.getPedidoMinimoValor();
+        this.serienf = fornecedor.getSerienf();
+        this.descontoFunRural = fornecedor.getDescontoFunRural();
+        this.senha = fornecedor.getSenha();
+        this.tipoRecebimento = new TipoRecebimentoDTO(fornecedor.getTipoRecebimento());
+        this.agencia = fornecedor.getAgencia();
+        this.digitoAgencia = fornecedor.getDigitoAgencia();
+        this.conta = fornecedor.getConta();
+        this.digitoConta = fornecedor.getDigitoConta();
+        this.banco = new BancoDTO(fornecedor.getBanco());
+        this.fornecedorFavorecido = new FornecedorDTO(fornecedor.getFornecedorFavorecido());
+        this.enderecoCobranca = fornecedor.getEnderecoCobranca();
+        this.bairroCobranca = fornecedor.getBairroCobranca();
+        this.cepCobranca = fornecedor.getCepCobranca();
+        this.municipioCobranca = new MunicipioDTO(fornecedor.getMunicipioCobranca());
+        this.estadoCobranca = new EstadoDTO(fornecedor.getEstadoCobranca());
+        this.bloqueado = fornecedor.getBloqueado();
+        this.tipoMotivoFornecedor = new TipoMotivoFornecedorDTO(fornecedor.getTipoMotivoFornecedor());
+        this.datasIntegra = fornecedor.getDatasIntegra();
+        this.tipoEmpresa = new TipoEmpresaDTO(fornecedor.getTipoEmpresa());
+        this.inscricaoSuframa = fornecedor.getInscricaoSuframa();
+        this.utilizaIva = fornecedor.getUtilizaIva();
+        this.familiaFornecedor = new FamiliaFornecedorDTO(fornecedor.getFamiliaFornecedor());
+        this.tipoInspecao = new TipoInspecaoDTO(fornecedor.getTipoInspecao());
+        this.numeroInspecao = fornecedor.getNumeroInspecao();
+        this.tipoTroca = new TipoTrocaDTO(fornecedor.getTipoTroca());
+        this.tipoFornecedor = new TipoFornecedorDTO(fornecedor.getTipoFornecedor());
+        this.contaContabilFinanceiro = new ContaContabilFinanceiroDTO(fornecedor.getContaContabilFinanceiro());
+        this.utilizaNfe = fornecedor.getUtilizaNfe();
+        this.dataCadastro = fornecedor.getDataCadastro();
+        this.utilizaConferencia = fornecedor.getUtilizaConferencia();
+        this.numero = fornecedor.getNumero();
+        this.permiteNfSemPedido = fornecedor.getPermiteNfSemPedido();
+        this.modeloNf = fornecedor.getModeloNf();
+        this.emiteNf = fornecedor.getEmiteNf();
+        this.tipoNegociacao = fornecedor.getTipoNegociacao();
+        this.utilizaCrossDocking = fornecedor.getUtilizaCrossDocking();
+        this.lojaCrossDocking = new LojaDTO(fornecedor.getLojaCrossDocking());
+        this.observacao = fornecedor.getObservacao();
+        this.pais = new PaisDTO(fornecedor.getPais());
+        this.inscricaoMunicipal = fornecedor.getInscricaoMunicipal();
+        this.contaContabilFiscalPassivo = new ContaContabilFiscalDTO(fornecedor.getContaContabilFiscalPassivo());
+        this.numeroCobranca = fornecedor.getNumeroCobranca();
+        this.complemento = fornecedor.getComplemento();
+        this.complementoCobranca = fornecedor.getComplementoCobranca();
+        this.contaContabilFiscalAtivo = new ContaContabilFiscalDTO(fornecedor.getContaContabilFiscalAtivo());
+        this.utilizaEdi = fornecedor.getUtilizaEdi();
+        this.tipoRegraVencimento = fornecedor.getTipoRegraVencimento();
+        this.nfEmitidaPostoFiscal = fornecedor.getNfEmitidaPostoFiscal();
+        this.tipoIndicadorie = new TipoIndicadorieDTO(fornecedor.getTipoIndicadorie());
+        this.indicativoCprb = new IndicativoCprbDTO(fornecedor.getIndicativoCprb());
+        this.utilizaProdepe = fornecedor.getUtilizaProdepe();
+        this.tipoNegociacaoCompra = new TipoNegociacaoCompraDTO(fornecedor.getTipoNegociacaoCompra());
+        this.tipoCustoDevolucaoTroca = new TipoCustoDevolucaoTrocaDTO(fornecedor.getTipoCustoDevolucaoTroca());
+        this.alteradoPaf = fornecedor.getAlteradoPaf();
+        this.cpfProdutorRural = fornecedor.getCpfProdutorRural();
+        this.indicativoSenar = new IndicativoSenarDTO(fornecedor.getIndicativoSenar());
+        this.antecipacaoPagamento = fornecedor.getAntecipacaoPagamento();
+        this.percentualCreditoIcmssn = fornecedor.getPercentualCreditoIcmssn();
     }
 }

@@ -1,25 +1,38 @@
 package br.com.integracaoapi.model.dto;
 
+import br.com.integracaoapi.model.entity.Municipio;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
-public record MunicipioDTO(
+@Getter
+@Setter
+public class MunicipioDTO {
 
-        Integer id,
+    private Integer id;
 
-        @NotNull
-        @Size(max = 50)
-        String descricao,
+    @NotNull
+    @Size(max = 50)
+    private String descricao;
 
-        @NotNull
-        EstadoDTO estado,
+    @NotNull
+    private EstadoDTO estado;
 
-        @NotNull
-        Integer dipam,
+    @NotNull
+    private Integer dipam;
 
-        @NotNull
-        Integer dipj,
+    @NotNull
+    private Integer dipj;
 
-        Integer dief
-) {
+    private Integer dief;
+
+    public MunicipioDTO(Municipio municipio) {
+        this.id = municipio.getId();
+        this.descricao = municipio.getDescricao();
+        this.estado = new EstadoDTO(municipio.getEstado());
+        this.dipam = municipio.getDipam();
+        this.dipj = municipio.getDipj();
+        this.dief = municipio.getDief();
+    }
 }

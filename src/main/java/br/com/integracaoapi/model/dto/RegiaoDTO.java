@@ -3,20 +3,21 @@ package br.com.integracaoapi.model.dto;
 import br.com.integracaoapi.model.entity.Regiao;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
-public record RegiaoDTO(
+@Getter
+@Setter
+public class RegiaoDTO {
 
-        Integer id,
+    private Integer id;
 
-        @NotNull
-        @Size(max = 30)
-        String descricao
-) {
+    @NotNull
+    @Size(max = 30)
+    private String descricao;
 
     public RegiaoDTO(Regiao regiao) {
-        this(
-                regiao.getId(),
-                regiao.getDescricao()
-        );
+        this.id = regiao.getId();
+        this.descricao = regiao.getDescricao();
     }
 }
