@@ -1,16 +1,26 @@
 package br.com.integracaoapi.model.dto;
 
+import br.com.integracaoapi.model.entity.Pais;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
-public record PaisDTO(
+@Getter
+@Setter
+public class PaisDTO {
 
-        Integer id,
+    private Integer id;
 
-        @NotNull
-        @Size(max = 50)
-        String descricao,
+    @NotNull
+    @Size(max = 50)
+    private String descricao;
 
-        Integer codigoSped
-) {
+    private Integer codigoSped;
+
+    public PaisDTO(Pais pais) {
+        this.id = pais.getId();
+        this.descricao = pais.getDescricao();
+        this.codigoSped = pais.getCodigoSped();
+    }
 }

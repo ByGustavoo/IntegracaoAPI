@@ -1,32 +1,47 @@
 package br.com.integracaoapi.model.dto;
 
+import br.com.integracaoapi.model.entity.TipoPagamento;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
-public record TipoPagamentoDTO(
+@Getter
+@Setter
+public class TipoPagamentoDTO {
 
-        Integer id,
+    private Integer id;
 
-        @NotNull
-        @Size(max = 30)
-        String descricao,
+    @NotNull
+    @Size(max = 30)
+    private String descricao;
 
-        @NotNull
-        Boolean banco,
+    @NotNull
+    private Boolean banco;
 
-        @NotNull
-        Boolean cheque,
+    @NotNull
+    private Boolean cheque;
 
-        @NotNull
-        Integer quantidadeDias,
+    @NotNull
+    private Integer quantidadeDias;
 
-        @NotNull
-        Boolean boleto,
+    @NotNull
+    private Boolean boleto;
 
-        @NotNull
-        Boolean docted,
+    @NotNull
+    private Boolean docted;
 
-        @NotNull
-        Boolean debitocc)
-{
+    @NotNull
+    private Boolean debitocc;
+
+    public TipoPagamentoDTO(TipoPagamento tipoPagamento) {
+        this.id = tipoPagamento.getId();
+        this.descricao = tipoPagamento.getDescricao();
+        this.banco = tipoPagamento.getBanco();
+        this.cheque = tipoPagamento.getCheque();
+        this.quantidadeDias = tipoPagamento.getQuantidadeDias();
+        this.boleto = tipoPagamento.getBoleto();
+        this.docted = tipoPagamento.getDocted();
+        this.debitocc = tipoPagamento.getDebitocc();
+    }
 }

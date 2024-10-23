@@ -1,14 +1,23 @@
 package br.com.integracaoapi.model.dto;
 
+import br.com.integracaoapi.model.entity.TipoMotivoFornecedor;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
-public record TipoMotivoFornecedorDTO(
+@Getter
+@Setter
+public class TipoMotivoFornecedorDTO {
 
-        Integer id,
+    private Integer id;
 
-        @NotNull
-        @Size(max = 40)
-        String descricao
-) {
+    @NotNull
+    @Size(max = 40)
+    private String descricao;
+
+    public TipoMotivoFornecedorDTO(TipoMotivoFornecedor tipoMotivoFornecedor) {
+        this.id = tipoMotivoFornecedor.getId();
+        this.descricao = tipoMotivoFornecedor.getDescricao();
+    }
 }
