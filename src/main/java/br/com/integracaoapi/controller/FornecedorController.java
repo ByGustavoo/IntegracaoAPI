@@ -1,7 +1,7 @@
 package br.com.integracaoapi.controller;
 
-import br.com.integracaoapi.model.dto.LojaDTO;
-import br.com.integracaoapi.service.LojaService;
+import br.com.integracaoapi.model.dto.FornecedorDTO;
+import br.com.integracaoapi.service.FornecedorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/loja")
-public class LojaController {
+@RequestMapping("/fornecedor")
+public class FornecedorController {
 
     @Autowired
-    private LojaService lojaService;
+    private FornecedorService fornecedorService;
 
     @GetMapping("/v1")
-    public List<LojaDTO> findAll() {
-        return lojaService.getAllStores();
+    public List<FornecedorDTO> findAll() {
+        return fornecedorService.getFornecedor();
     }
 }

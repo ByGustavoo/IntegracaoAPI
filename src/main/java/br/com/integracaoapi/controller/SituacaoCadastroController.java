@@ -13,7 +13,7 @@ import java.util.List;
 public class SituacaoCadastroController {
 
     @Autowired
-    SituacaoCadastroService situacaoCadastroService;
+    private SituacaoCadastroService situacaoCadastroService;
 
     @GetMapping("/v1")
     public List<SituacaoCadastroDTO> findAll() {
