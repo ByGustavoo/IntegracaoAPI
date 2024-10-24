@@ -13,7 +13,7 @@ import java.util.List;
 public class RegiaoController {
 
     @Autowired
-    RegiaoService regiaoService;
+    private RegiaoService regiaoService;
 
     @GetMapping("/v1")
     public List<RegiaoDTO> findAll() {

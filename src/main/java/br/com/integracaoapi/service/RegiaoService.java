@@ -10,7 +10,7 @@ import java.util.List;
 public class RegiaoService {
 
     @Autowired
-    RegiaoRepository regiaoRepository;
+    private RegiaoRepository regiaoRepository;
 
     public List<RegiaoDTO> getAllRegions() {
         return regiaoRepository.findAll().stream().map(RegiaoDTO::new).toList();

@@ -10,7 +10,7 @@ import java.util.List;
 public class LojaService {
 
     @Autowired
-    LojaRepository lojaRepository;
+    private LojaRepository lojaRepository;
 
     public List<LojaDTO> getAllStores() {
         return lojaRepository.findAll().stream().map(LojaDTO::new).toList();

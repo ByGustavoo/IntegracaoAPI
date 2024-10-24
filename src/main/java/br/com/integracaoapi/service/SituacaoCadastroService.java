@@ -10,7 +10,7 @@ import java.util.List;
 public class SituacaoCadastroService {
 
     @Autowired
-    SituacaoCadastroRepository situacaoCadastroRepository;
+    private SituacaoCadastroRepository situacaoCadastroRepository;
 
     public List<SituacaoCadastroDTO> getSituacaoCadastro() {
         return situacaoCadastroRepository.findAll().stream().map(SituacaoCadastroDTO::new).toList();
