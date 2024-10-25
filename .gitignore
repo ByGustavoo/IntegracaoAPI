@@ -1,4 +1,5 @@
 # Ignorar diretórios de build do Gradle
+build/
 /build/
 /.gradle/
 
