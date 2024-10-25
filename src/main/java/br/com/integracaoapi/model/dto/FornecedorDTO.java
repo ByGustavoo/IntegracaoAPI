@@ -1,7 +1,6 @@
 package br.com.integracaoapi.model.dto;
 
 import br.com.integracaoapi.model.entity.Fornecedor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -102,9 +101,6 @@ public class FornecedorDTO {
     private String digitoConta;
 
     private BancoDTO banco;
-
-    @JsonIgnore
-    private FornecedorDTO fornecedorFavorecido;
 
     @NotNull
     @Size(max = 40)
@@ -261,30 +257,29 @@ public class FornecedorDTO {
         this.serienf = fornecedor.getSerienf();
         this.descontoFunRural = fornecedor.getDescontoFunRural();
         this.senha = fornecedor.getSenha();
-        this.tipoRecebimento = new TipoRecebimentoDTO(fornecedor.getTipoRecebimento());
+        this.tipoRecebimento = fornecedor.getTipoRecebimento() != null ? new TipoRecebimentoDTO(fornecedor.getTipoRecebimento()) : null;
         this.agencia = fornecedor.getAgencia();
         this.digitoAgencia = fornecedor.getDigitoAgencia();
         this.conta = fornecedor.getConta();
         this.digitoConta = fornecedor.getDigitoConta();
-        this.banco = new BancoDTO(fornecedor.getBanco());
-        this.fornecedorFavorecido = new FornecedorDTO(fornecedor.getFornecedorFavorecido());
+        this.banco = fornecedor.getBanco() != null ? new BancoDTO(fornecedor.getBanco()) : null;
         this.enderecoCobranca = fornecedor.getEnderecoCobranca();
         this.bairroCobranca = fornecedor.getBairroCobranca();
         this.cepCobranca = fornecedor.getCepCobranca();
-        this.municipioCobranca = new MunicipioDTO(fornecedor.getMunicipioCobranca());
-        this.estadoCobranca = new EstadoDTO(fornecedor.getEstadoCobranca());
+        this.municipioCobranca = fornecedor.getMunicipioCobranca() != null ? new MunicipioDTO(fornecedor.getMunicipioCobranca()) : null;
+        this.estadoCobranca = fornecedor.getEstadoCobranca() != null ? new EstadoDTO(fornecedor.getEstadoCobranca()) : null;
         this.bloqueado = fornecedor.getBloqueado();
-        this.tipoMotivoFornecedor = new TipoMotivoFornecedorDTO(fornecedor.getTipoMotivoFornecedor());
+        this.tipoMotivoFornecedor = fornecedor.getTipoMotivoFornecedor() != null ? new TipoMotivoFornecedorDTO(fornecedor.getTipoMotivoFornecedor()) : null;
         this.datasIntegra = fornecedor.getDatasIntegra();
         this.tipoEmpresa = new TipoEmpresaDTO(fornecedor.getTipoEmpresa());
         this.inscricaoSuframa = fornecedor.getInscricaoSuframa();
         this.utilizaIva = fornecedor.getUtilizaIva();
-        this.familiaFornecedor = new FamiliaFornecedorDTO(fornecedor.getFamiliaFornecedor());
-        this.tipoInspecao = new TipoInspecaoDTO(fornecedor.getTipoInspecao());
+        this.familiaFornecedor = fornecedor.getFamiliaFornecedor() != null ? new FamiliaFornecedorDTO(fornecedor.getFamiliaFornecedor()) : null;
+        this.tipoInspecao = fornecedor.getTipoInspecao() != null ? new TipoInspecaoDTO(fornecedor.getTipoInspecao()) : null;
         this.numeroInspecao = fornecedor.getNumeroInspecao();
-        this.tipoTroca = new TipoTrocaDTO(fornecedor.getTipoTroca());
+        this.tipoTroca = fornecedor.getTipoTroca() != null ? new TipoTrocaDTO(fornecedor.getTipoTroca()) : null;
         this.tipoFornecedor = new TipoFornecedorDTO(fornecedor.getTipoFornecedor());
-        this.contaContabilFinanceiro = new ContaContabilFinanceiroDTO(fornecedor.getContaContabilFinanceiro());
+        this.contaContabilFinanceiro = fornecedor.getContaContabilFinanceiro() != null ? new ContaContabilFinanceiroDTO(fornecedor.getContaContabilFinanceiro()) : null;
         this.utilizaNfe = fornecedor.getUtilizaNfe();
         this.dataCadastro = fornecedor.getDataCadastro();
         this.utilizaConferencia = fornecedor.getUtilizaConferencia();
@@ -294,26 +289,26 @@ public class FornecedorDTO {
         this.emiteNf = fornecedor.getEmiteNf();
         this.tipoNegociacao = fornecedor.getTipoNegociacao();
         this.utilizaCrossDocking = fornecedor.getUtilizaCrossDocking();
-        this.lojaCrossDocking = new LojaDTO(fornecedor.getLojaCrossDocking());
+        this.lojaCrossDocking = fornecedor.getLojaCrossDocking() != null ? new LojaDTO(fornecedor.getLojaCrossDocking().getId(), fornecedor.getLojaCrossDocking().getDescricao()) : null;
         this.observacao = fornecedor.getObservacao();
         this.pais = new PaisDTO(fornecedor.getPais());
         this.inscricaoMunicipal = fornecedor.getInscricaoMunicipal();
-        this.contaContabilFiscalPassivo = new ContaContabilFiscalDTO(fornecedor.getContaContabilFiscalPassivo());
+        this.contaContabilFiscalPassivo = fornecedor.getContaContabilFiscalPassivo() != null ? new ContaContabilFiscalDTO(fornecedor.getContaContabilFiscalPassivo()) : null;
         this.numeroCobranca = fornecedor.getNumeroCobranca();
         this.complemento = fornecedor.getComplemento();
         this.complementoCobranca = fornecedor.getComplementoCobranca();
-        this.contaContabilFiscalAtivo = new ContaContabilFiscalDTO(fornecedor.getContaContabilFiscalAtivo());
+        this.contaContabilFiscalAtivo = fornecedor.getContaContabilFiscalAtivo() != null ? new ContaContabilFiscalDTO(fornecedor.getContaContabilFiscalAtivo()) : null;
         this.utilizaEdi = fornecedor.getUtilizaEdi();
         this.tipoRegraVencimento = fornecedor.getTipoRegraVencimento();
         this.nfEmitidaPostoFiscal = fornecedor.getNfEmitidaPostoFiscal();
-        this.tipoIndicadorie = new TipoIndicadorieDTO(fornecedor.getTipoIndicadorie());
-        this.indicativoCprb = new IndicativoCprbDTO(fornecedor.getIndicativoCprb());
+        this.tipoIndicadorie = fornecedor.getTipoIndicadorie() != null ? new TipoIndicadorieDTO(fornecedor.getTipoIndicadorie()) : null;
+        this.indicativoCprb = fornecedor.getIndicativoCprb() != null ? new IndicativoCprbDTO(fornecedor.getIndicativoCprb()) : null;
         this.utilizaProdepe = fornecedor.getUtilizaProdepe();
         this.tipoNegociacaoCompra = new TipoNegociacaoCompraDTO(fornecedor.getTipoNegociacaoCompra());
-        this.tipoCustoDevolucaoTroca = new TipoCustoDevolucaoTrocaDTO(fornecedor.getTipoCustoDevolucaoTroca());
+        this.tipoCustoDevolucaoTroca = fornecedor.getTipoCustoDevolucaoTroca() != null ? new TipoCustoDevolucaoTrocaDTO(fornecedor.getTipoCustoDevolucaoTroca()) : null;
         this.alteradoPaf = fornecedor.getAlteradoPaf();
         this.cpfProdutorRural = fornecedor.getCpfProdutorRural();
-        this.indicativoSenar = new IndicativoSenarDTO(fornecedor.getIndicativoSenar());
+        this.indicativoSenar = fornecedor.getIndicativoSenar() != null ? new IndicativoSenarDTO(fornecedor.getIndicativoSenar()) : null;
         this.antecipacaoPagamento = fornecedor.getAntecipacaoPagamento();
         this.percentualCreditoIcmssn = fornecedor.getPercentualCreditoIcmssn();
     }

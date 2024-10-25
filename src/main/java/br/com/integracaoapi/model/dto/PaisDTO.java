@@ -1,6 +1,7 @@
 package br.com.integracaoapi.model.dto;
 
 import br.com.integracaoapi.model.entity.Pais;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -8,6 +9,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PaisDTO {
 
     private Integer id;
@@ -21,6 +23,5 @@ public class PaisDTO {
     public PaisDTO(Pais pais) {
         this.id = pais.getId();
         this.descricao = pais.getDescricao();
-        this.codigoSped = pais.getCodigoSped();
     }
 }

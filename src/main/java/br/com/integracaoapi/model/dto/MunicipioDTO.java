@@ -1,6 +1,7 @@
 package br.com.integracaoapi.model.dto;
 
 import br.com.integracaoapi.model.entity.Municipio;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -8,6 +9,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MunicipioDTO {
 
     private Integer id;
@@ -30,9 +32,5 @@ public class MunicipioDTO {
     public MunicipioDTO(Municipio municipio) {
         this.id = municipio.getId();
         this.descricao = municipio.getDescricao();
-        this.estado = new EstadoDTO(municipio.getEstado());
-        this.dipam = municipio.getDipam();
-        this.dipj = municipio.getDipj();
-        this.dief = municipio.getDief();
     }
 }

@@ -1,6 +1,7 @@
 package br.com.integracaoapi.model.dto;
 
 import br.com.integracaoapi.model.entity.Loja;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -8,6 +9,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class LojaDTO {
 
     private Integer id;
@@ -17,7 +19,7 @@ public class LojaDTO {
     private String descricao;
 
     @NotNull
-    private FornecedorDTO fornecedor;
+    private FornecedorLojaDTO fornecedor;
 
     @NotNull
     private SituacaoCadastroDTO situacaoCadastro;
@@ -45,7 +47,7 @@ public class LojaDTO {
     public LojaDTO(Loja loja) {
         this.id = loja.getId();
         this.descricao = loja.getDescricao();
-        this.fornecedor = new FornecedorDTO(loja.getFornecedor());
+        this.fornecedor = new FornecedorLojaDTO(loja.getFornecedor().getId(), loja.getFornecedor().getRazaoSocial(), loja.getFornecedor().getNomeFantasia());
         this.situacaoCadastro = new SituacaoCadastroDTO(loja.getSituacaoCadastro());
         this.nomeServidor = loja.getNomeServidor();
         this.regiao = new RegiaoDTO(loja.getRegiao());
@@ -54,5 +56,10 @@ public class LojaDTO {
         this.estoqueTerceiro = loja.getEstoqueTerceiro();
         this.lojaVirtual = loja.getLojaVirtual();
         this.atacado = loja.getAtacado();
+    }
+
+    public LojaDTO(Integer id, String descricao) {
+        this.id = id;
+        this.descricao = descricao;
     }
 }

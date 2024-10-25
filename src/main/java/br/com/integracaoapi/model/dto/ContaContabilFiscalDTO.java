@@ -1,6 +1,7 @@
 package br.com.integracaoapi.model.dto;
 
 import br.com.integracaoapi.model.entity.ContaContabilFiscal;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import java.sql.Date;
 
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ContaContabilFiscalDTO {
 
     private Integer id;
@@ -58,18 +60,5 @@ public class ContaContabilFiscalDTO {
     public ContaContabilFiscalDTO(ContaContabilFiscal contaContabilFiscal) {
         this.id = contaContabilFiscal.getId();
         this.descricao = contaContabilFiscal.getDescricao();
-        this.conta1 = contaContabilFiscal.getConta1();
-        this.conta2 = contaContabilFiscal.getConta2();
-        this.conta3 = contaContabilFiscal.getConta3();
-        this.conta4 = contaContabilFiscal.getConta4();
-        this.conta5 = contaContabilFiscal.getConta5();
-        this.nivel = contaContabilFiscal.getNivel();
-        this.situacaoCadastro = new SituacaoCadastroDTO(contaContabilFiscal.getSituacaoCadastro());
-        this.contaReduzida = contaContabilFiscal.getContaReduzida();
-        this.resultado = contaContabilFiscal.getResultado();
-        this.data = contaContabilFiscal.getData();
-        this.dmpl = contaContabilFiscal.getDmpl();
-        this.contaCompensacao = contaContabilFiscal.getContaCompensacao();
-        this.notaExplicativa = contaContabilFiscal.getNotaExplicativa();
     }
 }
