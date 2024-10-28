@@ -23,16 +23,10 @@ public class RegiaoService {
     }
 
     public void updateRegion(Integer id, RegiaoDTO regiaoDTO) {
-        try {
-            Regiao findRegion = regiaoRepository.findById(id)
-                    .orElseThrow(() -> new NotFoundException("ERRO! A Região não foi encontrada!"));
+            Regiao findRegion = regiaoRepository.findById(id).orElseThrow(() -> new NotFoundException("ERRO! A Região não foi encontrada!"));
 
             findRegion.setDescricao(regiaoDTO.getDescricao());
 
             regiaoRepository.save(findRegion);
-        }
-        catch (RuntimeException ex) {
-            throw new NotFoundException("ERRO! Não foi possível atualizar!", ex);
-        }
     }
 }
