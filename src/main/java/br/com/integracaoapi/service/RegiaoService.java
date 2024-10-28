@@ -15,4 +15,8 @@ public class RegiaoService {
     public List<RegiaoDTO> getAllRegions() {
         return regiaoRepository.findAll().stream().map(RegiaoDTO::new).toList();
     }
+
+    public void saveRegion(RegiaoDTO regiaoDTO) {
+        regiaoRepository.save(regiaoDTO.toEntity());
+    }
 }

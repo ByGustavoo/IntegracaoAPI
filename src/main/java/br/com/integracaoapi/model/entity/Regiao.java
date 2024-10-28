@@ -13,8 +13,8 @@ import lombok.Setter;
 public class Regiao {
 
     @Id
+    @NotNull
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
