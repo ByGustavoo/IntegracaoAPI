@@ -22,13 +22,13 @@ public class RegiaoController {
 
     @PostMapping("/v1")
     @Transactional
-    public void save(@RequestBody @Valid RegiaoDTO regiaoDTO) {
+    public void saveRegion(@RequestBody @Valid RegiaoDTO regiaoDTO) {
         regiaoService.saveRegion(regiaoDTO);
     }
 
     @PatchMapping("/v1/{id}")
     @Transactional
-    public void update(@PathVariable Integer id, @RequestBody @Valid RegiaoDTO regiaoDTO) {
+    public void updateRegion(@PathVariable Integer id, @RequestBody @Valid RegiaoDTO regiaoDTO) {
         regiaoService.updateRegion(id, regiaoDTO);
     }
 }
