@@ -31,4 +31,14 @@ public class TipoCentroCustoDTO {
         this.grupoEconomico = new GrupoEconomicoDTO(tipoCentroCusto.getGrupoEconomico());
         this.utilizaPercentual = tipoCentroCusto.getUtilizaPercentual();
     }
+
+    public TipoCentroCusto toEntity() {
+        TipoCentroCusto tipoCentroCusto = new TipoCentroCusto();
+        tipoCentroCusto.setId(this.id);
+        tipoCentroCusto.setDescricao(this.descricao);
+        tipoCentroCusto.setSituacaoCadastro(this.situacaoCadastro.toEntity());
+        tipoCentroCusto.setGrupoEconomico(this.grupoEconomico.toEntity());
+        tipoCentroCusto.setUtilizaPercentual(this.utilizaPercentual);
+        return tipoCentroCusto;
+    }
 }

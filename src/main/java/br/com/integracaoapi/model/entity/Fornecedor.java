@@ -17,8 +17,8 @@ import java.time.LocalDate;
 public class Fornecedor {
 
     @Id
+    @NotNull
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
