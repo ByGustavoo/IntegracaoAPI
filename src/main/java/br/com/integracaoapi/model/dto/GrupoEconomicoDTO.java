@@ -36,4 +36,16 @@ public class GrupoEconomicoDTO {
         this.naturezaJuridica = grupoEconomico.getNaturezaJuridica();
         this.cnae = grupoEconomico.getCnae();
     }
+
+    public GrupoEconomico toEntity() {
+        GrupoEconomico grupoEconomico = new GrupoEconomico();
+        grupoEconomico.setId(this.id);
+        grupoEconomico.setDescricao(this.descricao);
+        grupoEconomico.setFormaTributacao(this.formaTributacao);
+        grupoEconomico.setFormaApuracao(this.formaApuracao);
+        grupoEconomico.setQualificacaoPj(this.qualificacaoPj);
+        grupoEconomico.setNaturezaJuridica(this.naturezaJuridica);
+        grupoEconomico.setCnae(this.cnae);
+        return grupoEconomico;
+    }
 }

@@ -4,11 +4,15 @@ import br.com.integracaoapi.model.entity.Loja;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class LojaDTO {
 
@@ -19,7 +23,7 @@ public class LojaDTO {
     private String descricao;
 
     @NotNull
-    private FornecedorLojaDTO fornecedor;
+    private FornecedorDTO fornecedor;
 
     @NotNull
     private SituacaoCadastroDTO situacaoCadastro;
@@ -47,7 +51,7 @@ public class LojaDTO {
     public LojaDTO(Loja loja) {
         this.id = loja.getId();
         this.descricao = loja.getDescricao();
-        this.fornecedor = new FornecedorLojaDTO(loja.getFornecedor().getId(), loja.getFornecedor().getRazaoSocial(), loja.getFornecedor().getNomeFantasia());
+        this.fornecedor = new FornecedorDTO(loja.getFornecedor().getId(), loja.getFornecedor().getRazaoSocial(), loja.getFornecedor().getNomeFantasia());
         this.situacaoCadastro = new SituacaoCadastroDTO(loja.getSituacaoCadastro());
         this.nomeServidor = loja.getNomeServidor();
         this.regiao = new RegiaoDTO(loja.getRegiao());
@@ -61,5 +65,21 @@ public class LojaDTO {
     public LojaDTO(Integer id, String descricao) {
         this.id = id;
         this.descricao = descricao;
+    }
+
+    public Loja toEntity() {
+        Loja loja = new Loja();
+        loja.setId(this.id);
+        loja.setDescricao(this.descricao);
+        loja.setFornecedor(this.fornecedor.toEntity());
+        loja.setSituacaoCadastro(this.situacaoCadastro.toEntity());
+        loja.setNomeServidor(this.nomeServidor);
+        loja.setRegiao(this.regiao.toEntity());
+        loja.setServidorCentral(this.servidorCentral);
+        loja.setGeraConcentrador(this.geraConcentrador);
+        loja.setEstoqueTerceiro(this.estoqueTerceiro);
+        loja.setLojaVirtual(this.lojaVirtual);
+        loja.setAtacado(this.atacado);
+        return loja;
     }
 }

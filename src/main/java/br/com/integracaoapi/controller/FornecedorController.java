@@ -2,6 +2,7 @@ package br.com.integracaoapi.controller;
 
 import br.com.integracaoapi.model.dto.FornecedorDTO;
 import br.com.integracaoapi.service.FornecedorService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,9 +22,20 @@ public class FornecedorController {
         return fornecedorService.getFornecedor(pageable);
     }
 
+    @GetMapping("/v1/{id}")
+    public FornecedorDTO findById(@PathVariable Integer id) {
+        return fornecedorService.getFornecedorById(id);
+    }
+
     @GetMapping("/v1/situacao")
     public Page<FornecedorDTO> findAllBySituacaoCadastro(String descricao, @PageableDefault(size = 100, sort = {"id"}) Pageable pageable) {
         return fornecedorService.getFornecedorBySituacaoCadastroDescricao(descricao, pageable);
+    }
+
+    @PostMapping("/v1")
+    @Transactional
+    public void saveFornecedor(@RequestBody @Valid FornecedorDTO fornecedorDTO) {
+        fornecedorService.saveFornecedor(fornecedorDTO);
     }
 
     @DeleteMapping("/v1/{id}")

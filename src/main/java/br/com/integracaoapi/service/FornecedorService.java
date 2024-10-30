@@ -20,14 +20,33 @@ public class FornecedorService {
     @Autowired
     private SituacaoCadastroRepository situacaoCadastroRepository;
 
+    // Retorna todos os Fornecedores
     public Page<FornecedorDTO> getFornecedor(Pageable pageable) {
         return fornecedorRepository.findAll(pageable).map(FornecedorDTO::new);
     }
 
+    // Retorna um Fornecedor pelo ID
+    public FornecedorDTO getFornecedorById(Integer id) {
+        Fornecedor findFornecedor = fornecedorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Fornecedor", id));
+        return new FornecedorDTO(findFornecedor);
+    }
+
+    // Retorna um Fornecedor pela descrição da Situação do Cadastro
     public Page<FornecedorDTO> getFornecedorBySituacaoCadastroDescricao(String descricao, Pageable pageable) {
         return fornecedorRepository.findAllBySituacaoCadastroDescricao(descricao, pageable).map(FornecedorDTO::new);
     }
 
+    // Salva um Fornecedor
+    public void saveFornecedor(FornecedorDTO fornecedorDTO) {
+        fornecedorRepository.save(fornecedorDTO.toEntity());
+    }
+
+    // Atualiza um Fornecedor
+    public void updateFornecedor() {
+        // TODO
+    }
+
+    // Deleta um Fornecedor
     public void deleteFornecedor(Integer id) {
         Fornecedor findFornecedor = fornecedorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Fornecedor", id));
 

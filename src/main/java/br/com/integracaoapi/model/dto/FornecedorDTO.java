@@ -235,6 +235,12 @@ public class FornecedorDTO {
 
     private BigDecimal percentualCreditoIcmssn;
 
+    public FornecedorDTO(Integer id, String razaoSocial, String nomeFantasia) {
+        this.id = id;
+        this.razaoSocial = razaoSocial;
+        this.nomeFantasia = nomeFantasia;
+    }
+
     public FornecedorDTO(Fornecedor fornecedor) {
         this.id = fornecedor.getId();
         this.razaoSocial = fornecedor.getRazaoSocial();
@@ -311,5 +317,86 @@ public class FornecedorDTO {
         this.indicativoSenar = fornecedor.getIndicativoSenar() != null ? new IndicativoSenarDTO(fornecedor.getIndicativoSenar()) : null;
         this.antecipacaoPagamento = fornecedor.getAntecipacaoPagamento();
         this.percentualCreditoIcmssn = fornecedor.getPercentualCreditoIcmssn();
+    }
+
+    public Fornecedor toEntity() {
+        Fornecedor fornecedor = new Fornecedor();
+        fornecedor.setId(this.id);
+        fornecedor.setRazaoSocial(this.razaoSocial);
+        fornecedor.setNomeFantasia(this.nomeFantasia);
+        fornecedor.setEndereco(this.endereco);
+        fornecedor.setBairro(this.bairro);
+        fornecedor.setMunicipio(this.municipio != null ? this.municipio.toEntity() : null);
+        fornecedor.setCep(this.cep);
+        fornecedor.setEstado(this.estado != null ? this.estado.toEntity() : null);
+        fornecedor.setTelefone(this.telefone);
+        fornecedor.setTipoInscricao(this.tipoInscricao != null ? this.tipoInscricao.toEntity() : null);
+        fornecedor.setInscricaoEstadual(this.inscricaoEstadual);
+        fornecedor.setCnpj(this.cnpj);
+        fornecedor.setRevenda(this.revenda);
+        fornecedor.setSituacaoCadastro(this.situacaoCadastro != null ? this.situacaoCadastro.toEntity() : null);
+        fornecedor.setTipoPagamento(this.tipoPagamento != null ? this.tipoPagamento.toEntity() : null);
+        fornecedor.setNumeroDoc(this.numeroDoc);
+        fornecedor.setPedidoMinimoQtd(this.pedidoMinimoQtd);
+        fornecedor.setPedidoMinimoValor(this.pedidoMinimoValor);
+        fornecedor.setSerienf(this.serienf);
+        fornecedor.setDescontoFunRural(this.descontoFunRural);
+        fornecedor.setSenha(this.senha);
+        fornecedor.setTipoRecebimento(this.tipoRecebimento != null ? this.tipoRecebimento.toEntity() : null);
+        fornecedor.setAgencia(this.agencia);
+        fornecedor.setDigitoAgencia(this.digitoAgencia);
+        fornecedor.setConta(this.conta);
+        fornecedor.setDigitoConta(this.digitoConta);
+        fornecedor.setBanco(this.banco != null ? this.banco.toEntity() : null);
+        fornecedor.setEnderecoCobranca(this.enderecoCobranca);
+        fornecedor.setBairroCobranca(this.bairroCobranca);
+        fornecedor.setCepCobranca(this.cepCobranca);
+        fornecedor.setMunicipioCobranca(this.municipioCobranca != null ? this.municipioCobranca.toEntity() : null);
+        fornecedor.setEstadoCobranca(this.estadoCobranca != null ? this.estadoCobranca.toEntity() : null);
+        fornecedor.setBloqueado(this.bloqueado);
+        fornecedor.setTipoMotivoFornecedor(this.tipoMotivoFornecedor != null ? this.tipoMotivoFornecedor.toEntity() : null);
+        fornecedor.setDatasIntegra(this.datasIntegra);
+        fornecedor.setTipoEmpresa(this.tipoEmpresa != null ? this.tipoEmpresa.toEntity() : null);
+        fornecedor.setInscricaoSuframa(this.inscricaoSuframa);
+        fornecedor.setUtilizaIva(this.utilizaIva);
+        fornecedor.setFamiliaFornecedor(this.familiaFornecedor != null ? this.familiaFornecedor.toEntity() : null);
+        fornecedor.setTipoInspecao(this.tipoInspecao != null ? this.tipoInspecao.toEntity() : null);
+        fornecedor.setNumeroInspecao(this.numeroInspecao);
+        fornecedor.setTipoTroca(this.tipoTroca != null ? this.tipoTroca.toEntity() : null);
+        fornecedor.setTipoFornecedor(this.tipoFornecedor != null ? this.tipoFornecedor.toEntity() : null);
+        fornecedor.setContaContabilFinanceiro(this.contaContabilFinanceiro != null ? this.contaContabilFinanceiro.toEntity() : null);
+        fornecedor.setUtilizaNfe(this.utilizaNfe);
+        fornecedor.setDataCadastro(this.dataCadastro);
+        fornecedor.setUtilizaConferencia(this.utilizaConferencia);
+        fornecedor.setNumero(this.numero);
+        fornecedor.setPermiteNfSemPedido(this.permiteNfSemPedido);
+        fornecedor.setModeloNf(this.modeloNf);
+        fornecedor.setEmiteNf(this.emiteNf);
+        fornecedor.setTipoNegociacao(this.tipoNegociacao);
+        fornecedor.setUtilizaCrossDocking(this.utilizaCrossDocking);
+        fornecedor.setLojaCrossDocking(this.lojaCrossDocking != null ? this.lojaCrossDocking.toEntity() : null);
+        fornecedor.setObservacao(this.observacao);
+        fornecedor.setPais(this.pais != null ? this.pais.toEntity() : null);
+        fornecedor.setInscricaoMunicipal(this.inscricaoMunicipal);
+        fornecedor.setContaContabilFiscalPassivo(this.contaContabilFiscalPassivo != null ? this.contaContabilFiscalPassivo.toEntity() : null);
+        fornecedor.setNumeroCobranca(this.numeroCobranca);
+        fornecedor.setComplemento(this.complemento);
+        fornecedor.setComplementoCobranca(this.complementoCobranca);
+        fornecedor.setContaContabilFiscalAtivo(this.contaContabilFiscalAtivo != null ? this.contaContabilFiscalAtivo.toEntity() : null);
+        fornecedor.setUtilizaEdi(this.utilizaEdi);
+        fornecedor.setTipoRegraVencimento(this.tipoRegraVencimento);
+        fornecedor.setNfEmitidaPostoFiscal(this.nfEmitidaPostoFiscal);
+        fornecedor.setTipoIndicadorie(this.tipoIndicadorie != null ? this.tipoIndicadorie.toEntity() : null);
+        fornecedor.setIndicativoCprb(this.indicativoCprb != null ? this.indicativoCprb.toEntity() : null);
+        fornecedor.setUtilizaProdepe(this.utilizaProdepe);
+        fornecedor.setTipoNegociacaoCompra(this.tipoNegociacaoCompra != null ? this.tipoNegociacaoCompra.toEntity() : null);
+        fornecedor.setTipoCustoDevolucaoTroca(this.tipoCustoDevolucaoTroca != null ? this.tipoCustoDevolucaoTroca.toEntity() : null);
+        fornecedor.setAlteradoPaf(this.alteradoPaf);
+        fornecedor.setCpfProdutorRural(this.cpfProdutorRural);
+        fornecedor.setIndicativoSenar(this.indicativoSenar != null ? this.indicativoSenar.toEntity() : null);
+        fornecedor.setAntecipacaoPagamento(this.antecipacaoPagamento);
+        fornecedor.setPercentualCreditoIcmssn(this.percentualCreditoIcmssn);
+
+        return fornecedor;
     }
 }
