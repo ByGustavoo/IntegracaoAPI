@@ -38,6 +38,12 @@ public class FornecedorController {
         fornecedorService.saveFornecedor(fornecedorDTO);
     }
 
+    @PatchMapping("/v1/{id}")
+    @Transactional
+    public void updateFornecedor(@PathVariable Integer id, @RequestBody @Valid FornecedorDTO fornecedorDTO) {
+        fornecedorService.updateFornecedor(id, fornecedorDTO);
+    }
+
     @DeleteMapping("/v1/{id}")
     @Transactional
     public void deleteFornecedor(@PathVariable Integer id) {
