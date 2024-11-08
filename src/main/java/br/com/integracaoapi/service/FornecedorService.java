@@ -34,28 +34,25 @@ public class FornecedorService {
         return fornecedorRepository.findAllBySituacaoCadastroDescricao(descricao, pageable).map(FornecedorDTO::new);
     }
 
-    public void saveFornecedor(FornecedorDTO fornecedorDTO) {
-        fornecedorRepository.save(fornecedorDTO.toEntity());
+    public FornecedorDTO saveFornecedor(FornecedorDTO fornecedorDTO) {
+        return new FornecedorDTO(fornecedorRepository.save(fornecedorDTO.toEntity()));
     }
 
-    public void updateFornecedor(Integer id, FornecedorDTO fornecedorDTO) {
+    public FornecedorDTO updateFornecedor(Integer id, FornecedorDTO fornecedorDTO) {
         Fornecedor findFornecedor = fornecedorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Fornecedor", id));
 
-        Fornecedor updateFornecedor = fornecedorDTO.toEntity();
-        BeanUtils.copyProperties(updateFornecedor, findFornecedor, "id");
-
-        fornecedorRepository.save(findFornecedor);
-
+        BeanUtils.copyProperties(fornecedorDTO, findFornecedor, "id");
+        return new FornecedorDTO(fornecedorRepository.save(findFornecedor));
     }
 
-    public void deleteFornecedor(Integer id) {
+    public FornecedorDTO deleteFornecedor(Integer id) {
         Fornecedor findFornecedor = fornecedorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Fornecedor", id));
 
         if (findFornecedor.getSituacaoCadastro().getId() == 1) {
             SituacaoCadastro situacaoExcluido = situacaoCadastroRepository.getReferenceById(0);
 
             findFornecedor.setSituacaoCadastro(situacaoExcluido);
-            fornecedorRepository.save(findFornecedor);
+            return new FornecedorDTO(fornecedorRepository.save(findFornecedor));
         }
         else {
             throw new RuntimeException("ERRO! O Fornecedor não pode ser deletado, pois o mesmo já se encontra excluído!");
