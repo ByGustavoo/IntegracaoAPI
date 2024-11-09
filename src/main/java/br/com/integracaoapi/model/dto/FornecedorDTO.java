@@ -15,7 +15,7 @@ public class FornecedorDTO {
 
     private Integer id;
 
-    @NotNull
+    @NotNull(message = "razaoSocial é obrigatória")
     @Size(max = 40)
     private String razaoSocial;
 

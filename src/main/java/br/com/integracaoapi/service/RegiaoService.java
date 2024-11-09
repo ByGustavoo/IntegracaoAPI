@@ -18,15 +18,15 @@ public class RegiaoService {
         return regiaoRepository.findAll().stream().map(RegiaoDTO::new).toList();
     }
 
-    public void saveRegion(RegiaoDTO regiaoDTO) {
-        regiaoRepository.save(regiaoDTO.toEntity());
+    public RegiaoDTO saveRegion(RegiaoDTO regiaoDTO) {
+        return new RegiaoDTO(regiaoRepository.save(regiaoDTO.toEntity()));
     }
 
-    public void updateRegion(Integer id, RegiaoDTO regiaoDTO) {
+    public RegiaoDTO updateRegion(Integer id, RegiaoDTO regiaoDTO) {
         Regiao findRegion = regiaoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Região", id));
 
         findRegion.setDescricao(regiaoDTO.getDescricao());
 
-        regiaoRepository.save(findRegion);
+        return new RegiaoDTO(regiaoRepository.save(findRegion));
     }
 }

@@ -4,6 +4,7 @@ import br.com.integracaoapi.model.dto.RegiaoDTO;
 import br.com.integracaoapi.service.RegiaoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -16,19 +17,19 @@ public class RegiaoController {
     private RegiaoService regiaoService;
 
     @GetMapping("/v1")
-    public List<RegiaoDTO> findAll() {
-        return regiaoService.getAllRegions();
+    public ResponseEntity<List<RegiaoDTO>> findAll() {
+        return ResponseEntity.ok(regiaoService.getAllRegions());
     }
 
     @PostMapping("/v1")
     @Transactional
-    public void saveRegion(@RequestBody @Valid RegiaoDTO regiaoDTO) {
-        regiaoService.saveRegion(regiaoDTO);
+    public ResponseEntity<?> saveRegion(@RequestBody @Valid RegiaoDTO regiaoDTO) {
+        return ResponseEntity.ok(regiaoService.saveRegion(regiaoDTO));
     }
 
     @PatchMapping("/v1/{id}")
     @Transactional
-    public void updateRegion(@PathVariable Integer id, @RequestBody @Valid RegiaoDTO regiaoDTO) {
-        regiaoService.updateRegion(id, regiaoDTO);
+    public ResponseEntity<?> updateRegion(@PathVariable Integer id, @RequestBody @Valid RegiaoDTO regiaoDTO) {
+        return ResponseEntity.ok(regiaoService.updateRegion(id, regiaoDTO));
     }
 }
