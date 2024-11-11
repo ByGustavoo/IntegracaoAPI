@@ -1,6 +1,6 @@
 package br.com.integracaoapi.infra;
 
-import br.com.integracaoapi.exceptions.ExceptionResponse;
+import br.com.integracaoapi.exceptions.dto.ExceptionResponseDTO;
 import br.com.integracaoapi.exceptions.dto.BadRequestDTO;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ErrorManagement {
 
-    ExceptionResponse exceptionResponse = new ExceptionResponse(
+    ExceptionResponseDTO exceptionResponseDTO = new ExceptionResponseDTO(
             404,
             "Not Found",
             "Resource not found",
