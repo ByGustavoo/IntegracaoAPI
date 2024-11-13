@@ -12,16 +12,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ErrorManagement {
 
-    NotFoundResponseDTO notFoundResponseDTO = new NotFoundResponseDTO(
-            404,
-            "Not Found",
-            "Registro não encontrado!",
-            "Não foi possível localizar um registro com o ID informado!"
-    );
-
     @ExceptionHandler({EntityNotFoundException.class})
     public ResponseEntity<?> notFoundException() {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(notFoundResponseDTO);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(NotFoundResponseDTO.notFoundResponseDTO);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

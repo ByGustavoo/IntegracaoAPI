@@ -24,4 +24,11 @@ public class NotFoundResponseDTO {
         this.details = details;
         this.timestamp = LocalDateTime.now();
     }
+
+    public static NotFoundResponseDTO notFoundResponseDTO = new NotFoundResponseDTO(
+            404,
+            "Not Found",
+            "Registro não encontrado!",
+            "Não foi possível localizar um registro com o ID informado!"
+    );
 }
