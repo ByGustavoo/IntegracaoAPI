@@ -1,8 +1,10 @@
 package br.com.integracaoapi.infra;
 
+import br.com.integracaoapi.exceptions.ResourceNotFoundException;
 import br.com.integracaoapi.exceptions.dto.ExceptionResponseDTO;
 import br.com.integracaoapi.exceptions.dto.BadRequestDTO;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -14,13 +16,13 @@ public class ErrorManagement {
     ExceptionResponseDTO exceptionResponseDTO = new ExceptionResponseDTO(
             404,
             "Not Found",
-            "Resource not found",
-            "The resource you are looking for was not found"
+            "Registro não encontrado!",
+            "Não foi possível localizar um registro com o ID informado!"
     );
 
-    @ExceptionHandler(EntityNotFoundException.class)
+    @ExceptionHandler({EntityNotFoundException.class, ResourceNotFoundException.class})
     public ResponseEntity<?> notFoundException() {
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionResponseDTO);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
