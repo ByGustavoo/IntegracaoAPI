@@ -12,7 +12,7 @@ public class SituacaoCadastroService {
     @Autowired
     private SituacaoCadastroRepository situacaoCadastroRepository;
 
-    public List<SituacaoCadastroDTO> getSituacaoCadastro() {
+    public List<SituacaoCadastroDTO> findAll() {
         return situacaoCadastroRepository.findAll().stream().map(SituacaoCadastroDTO::new).toList();
     }
 }

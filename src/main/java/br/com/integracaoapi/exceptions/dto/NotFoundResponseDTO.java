@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class ExceptionResponseDTO {
+public class NotFoundResponseDTO {
 
     private int statusCode;
     private String error;
@@ -17,7 +17,7 @@ public class ExceptionResponseDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime timestamp;
 
-    public ExceptionResponseDTO(int statusCode, String error, String message, String details) {
+    public NotFoundResponseDTO(int statusCode, String error, String message, String details) {
         this.statusCode = statusCode;
         this.error = error;
         this.message = message;

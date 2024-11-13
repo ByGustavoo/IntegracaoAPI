@@ -17,7 +17,7 @@ public class LojaController {
     private LojaService lojaService;
 
     @GetMapping("/v1")
-    public ResponseEntity<List<LojaDTO>> findAll() {
-        return ResponseEntity.ok(lojaService.getAllStores());
+    public ResponseEntity<List<LojaDTO>> getAll() {
+        return ResponseEntity.ok(lojaService.findAll());
     }
 }

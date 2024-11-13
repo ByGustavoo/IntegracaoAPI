@@ -19,18 +19,18 @@ public class FornecedorController {
     private FornecedorService fornecedorService;
 
     @GetMapping("/v1")
-    public ResponseEntity<Page<FornecedorDTO>> findAll(@PageableDefault(size = 100, sort = {"id"}) Pageable pageable) {
-        return ResponseEntity.ok(fornecedorService.getFornecedor(pageable));
+    public ResponseEntity<Page<FornecedorDTO>> getAll(@PageableDefault(size = 100, sort = {"id"}) Pageable pageable) {
+        return ResponseEntity.ok(fornecedorService.findAll(pageable));
     }
 
     @GetMapping("/v1/{id}")
-    public ResponseEntity<FornecedorDTO> findById(@PathVariable Integer id) {
-        return ResponseEntity.ok(fornecedorService.getFornecedorById(id));
+    public ResponseEntity<FornecedorDTO> getById(@PathVariable Integer id) {
+        return ResponseEntity.ok(fornecedorService.findFornecedorById(id));
     }
 
     @GetMapping("/v1/situacao")
-    public ResponseEntity<Page<FornecedorDTO>> findAllBySituacaoCadastro(String descricao, @PageableDefault(size = 100, sort = {"id"}) Pageable pageable) {
-        return ResponseEntity.ok(fornecedorService.getFornecedorBySituacaoCadastroDescricao(descricao, pageable));
+    public ResponseEntity<Page<FornecedorDTO>> getAllBySituacaoCadastro(String descricao, @PageableDefault(size = 100, sort = {"id"}) Pageable pageable) {
+        return ResponseEntity.ok(fornecedorService.findFornecedorBySituacaoCadastroDescricao(descricao, pageable));
     }
 
     @PostMapping("/v1")

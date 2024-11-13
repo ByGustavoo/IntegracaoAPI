@@ -1,6 +1,5 @@
 package br.com.integracaoapi.service;
 
-import br.com.integracaoapi.exceptions.ResourceNotFoundException;
 import br.com.integracaoapi.model.dto.FornecedorDTO;
 import br.com.integracaoapi.model.entity.Fornecedor;
 import br.com.integracaoapi.model.entity.SituacaoCadastro;
@@ -21,16 +20,16 @@ public class FornecedorService {
     @Autowired
     private SituacaoCadastroRepository situacaoCadastroRepository;
 
-    public Page<FornecedorDTO> getFornecedor(Pageable pageable) {
+    public Page<FornecedorDTO> findAll(Pageable pageable) {
         return fornecedorRepository.findAll(pageable).map(FornecedorDTO::new);
     }
 
-    public FornecedorDTO getFornecedorById(Integer id) {
-        Fornecedor findFornecedor = fornecedorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Fornecedor", id));
+    public FornecedorDTO findFornecedorById(Integer id) {
+        Fornecedor findFornecedor = fornecedorRepository.getReferenceById(id);
         return new FornecedorDTO(findFornecedor);
     }
 
-    public Page<FornecedorDTO> getFornecedorBySituacaoCadastroDescricao(String descricao, Pageable pageable) {
+    public Page<FornecedorDTO> findFornecedorBySituacaoCadastroDescricao(String descricao, Pageable pageable) {
         return fornecedorRepository.findAllBySituacaoCadastroDescricao(descricao, pageable).map(FornecedorDTO::new);
     }
 
@@ -39,14 +38,14 @@ public class FornecedorService {
     }
 
     public FornecedorDTO updateFornecedor(Integer id, FornecedorDTO fornecedorDTO) {
-        Fornecedor findFornecedor = fornecedorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Fornecedor", id));
+        Fornecedor findFornecedor = fornecedorRepository.getReferenceById(id);
 
         BeanUtils.copyProperties(fornecedorDTO, findFornecedor, "id");
         return new FornecedorDTO(fornecedorRepository.save(findFornecedor));
     }
 
     public FornecedorDTO deleteFornecedor(Integer id) {
-        Fornecedor findFornecedor = fornecedorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Fornecedor", id));
+        Fornecedor findFornecedor = fornecedorRepository.getReferenceById(id);
 
         if (findFornecedor.getSituacaoCadastro().getId() == 1) {
             SituacaoCadastro situacaoExcluido = situacaoCadastroRepository.getReferenceById(0);

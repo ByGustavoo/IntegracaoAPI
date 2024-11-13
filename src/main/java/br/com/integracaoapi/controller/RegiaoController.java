@@ -17,8 +17,8 @@ public class RegiaoController {
     private RegiaoService regiaoService;
 
     @GetMapping("/v1")
-    public ResponseEntity<List<RegiaoDTO>> findAll() {
-        return ResponseEntity.ok(regiaoService.getAllRegions());
+    public ResponseEntity<List<RegiaoDTO>> getAll() {
+        return ResponseEntity.ok(regiaoService.findAll());
     }
 
     @PostMapping("/v1")

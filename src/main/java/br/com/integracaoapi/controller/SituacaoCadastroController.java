@@ -17,7 +17,7 @@ public class SituacaoCadastroController {
     private SituacaoCadastroService situacaoCadastroService;
 
     @GetMapping("/v1")
-    public ResponseEntity<List<SituacaoCadastroDTO>> findAll() {
-        return ResponseEntity.ok(situacaoCadastroService.getSituacaoCadastro());
+    public ResponseEntity<List<SituacaoCadastroDTO>> getAll() {
+        return ResponseEntity.ok(situacaoCadastroService.findAll());
     }
 }

@@ -12,7 +12,7 @@ public class LojaService {
     @Autowired
     private LojaRepository lojaRepository;
 
-    public List<LojaDTO> getAllStores() {
+    public List<LojaDTO> findAll() {
         return lojaRepository.findAll().stream().map(LojaDTO::new).toList();
     }
 }

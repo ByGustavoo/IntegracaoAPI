@@ -1,6 +1,5 @@
 package br.com.integracaoapi.service;
 
-import br.com.integracaoapi.exceptions.ResourceNotFoundException;
 import br.com.integracaoapi.model.dto.RegiaoDTO;
 import br.com.integracaoapi.model.entity.Regiao;
 import br.com.integracaoapi.repository.RegiaoRepository;
@@ -14,7 +13,7 @@ public class RegiaoService {
     @Autowired
     private RegiaoRepository regiaoRepository;
 
-    public List<RegiaoDTO> getAllRegions() {
+    public List<RegiaoDTO> findAll() {
         return regiaoRepository.findAll().stream().map(RegiaoDTO::new).toList();
     }
 
@@ -23,7 +22,7 @@ public class RegiaoService {
     }
 
     public RegiaoDTO updateRegion(Integer id, RegiaoDTO regiaoDTO) {
-        Regiao findRegion = regiaoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Região", id));
+        Regiao findRegion = regiaoRepository.getReferenceById(id);
 
         findRegion.setDescricao(regiaoDTO.getDescricao());
 
