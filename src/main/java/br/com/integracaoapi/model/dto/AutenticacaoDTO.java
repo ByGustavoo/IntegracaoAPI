@@ -1,5 +1,6 @@
 package br.com.integracaoapi.model.dto;
 
+import br.com.integracaoapi.model.entity.Autenticacao;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -8,10 +9,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class AutenticacaoDTO {
 
     private Integer id;
@@ -22,6 +23,20 @@ public class AutenticacaoDTO {
 
     @NotNull
     private String password;
+
+    public AutenticacaoDTO(Autenticacao autenticacao) {
+        this.id = autenticacao.getId();
+        this.username = autenticacao.getUsername();
+        this.password = autenticacao.getPassword();
+    }
+
+    public Autenticacao toEntity() {
+        Autenticacao autenticacao = new Autenticacao();
+        autenticacao.setId(this.id);
+        autenticacao.setUsername(this.username);
+        autenticacao.setPassword(this.password);
+        return autenticacao;
+    }
 
     public UsernamePasswordAuthenticationToken convertAuthentication() {
         return new UsernamePasswordAuthenticationToken(this.username, this.password);
