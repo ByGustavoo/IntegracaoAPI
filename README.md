@@ -34,7 +34,7 @@ $ http://localhost:8080/fornecedor/v1
 🔹 GET
 ```bash
 # Retorna o registro pelo ID.
-$ http://localhost:8080/fornecedor/v1/{id}
+$ http://localhost:8080/fornecedor/v1/{💲id}
 ```
 
 🔹 POST
@@ -46,13 +46,13 @@ $ http://localhost:8080/fornecedor/v1
 🔹 PATCH
 ```bash
 # Atualiza um registro.
-$ http://localhost:8080/fornecedor/v1/{id}
+$ http://localhost:8080/fornecedor/v1/{💲id}
 ```
 
 🔹 DELETE
 ```bash
 # Deleta um registro.
-$ http://localhost:8080/fornecedor/v1/{id}
+$ http://localhost:8080/fornecedor/v1/{💲id}
 ```
 
 <br> 
