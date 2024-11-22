@@ -5,7 +5,7 @@
 </div> <br>  <br> 
 
 
-Esta API foi desenvolvida para Integração, permitindo que os clientes utilizem os endpoints disponíveis para acessar os dados do banco. 
+Esta API foi desenvolvida para Integração, permitindo que os clientes utilizem os endpoints disponíveis para acessar os Dados do Banco. 
 
 
  <br> 
