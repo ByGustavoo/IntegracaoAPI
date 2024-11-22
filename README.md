@@ -5,7 +5,8 @@
 </div> <br>  <br> 
 
 <div align="center"> 
-  Esta API foi desenvolvida para Integração, permitindo que os clientes utilizem os endpoints disponíveis para acessar os Dados do Banco. 
+  Esta API foi projetada com o objetivo de facilitar a integração, permitindo que os clientes acessem e interajam com os dados armazenados no Banco de Dados de maneira eficiente, por meio dos endpoints   
+  disponíveis.
 </div>
 
  <br> 
