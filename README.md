@@ -1,18 +1,18 @@
-
 <div align="center"> <br> 
   <img align="center" alt="guru-java" height="200" width="300" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" />
-  
 </div> <br>  <br> 
+
 
 <div align="center"> 
   Esta API foi projetada com o objetivo de facilitar a integração, permitindo que os clientes acessem e interajam com os dados armazenados no Banco de Dados de maneira eficiente, por meio dos endpoints   
   disponíveis.
 </div>
 
+
  <br> 
 
 
-## 🚀 Ferramentas Utilizadas:
+## 🚀 Ferramentas Utilizadas
 
 * Intellij
 
