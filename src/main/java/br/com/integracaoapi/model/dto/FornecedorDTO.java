@@ -15,200 +15,200 @@ public class FornecedorDTO {
 
     private Integer id;
 
-    @NotNull(message = "razaoSocial é obrigatória")
-    @Size(max = 40)
+    @NotNull(message = "{razaoSocial.obrigatorio}")
+    @Size(max = 40, message = "{razaoSocial.tamanhoMaximo}")
     private String razaoSocial;
 
-    @NotNull
-    @Size(max = 30)
+    @NotNull(message = "{nomeFantasia.obrigatorio}")
+    @Size(max = 30, message = "{nomeFantasia.tamanhoMaximo}")
     private String nomeFantasia;
 
-    @NotNull
-    @Size(max = 40)
+    @NotNull(message = "{endereco.obrigatorio}")
+    @Size(max = 40, message = "{endereco.tamanhoMaximo}")
     private String endereco;
 
-    @NotNull
-    @Size(max = 30)
+    @NotNull(message = "{bairro.obrigatorio}")
+    @Size(max = 30, message = "{bairro.tamanhoMaximo}")
     private String bairro;
 
-    @NotNull
+    @NotNull(message = "{municipio.obrigatorio}")
     private MunicipioDTO municipio;
 
-    @NotNull
+    @NotNull(message = "{cep.obrigatorio}")
     private BigDecimal cep;
 
-    @NotNull
+    @NotNull(message = "{estado.obrigatorio}")
     private EstadoDTO estado;
 
-    @NotNull
-    @Size(max = 14)
+    @NotNull(message = "{telefone.obrigatorio}")
+    @Size(max = 14, message = "{telefone.tamanhoMaximo}")
     private String telefone;
 
-    @NotNull
+    @NotNull(message = "{tipoInscricao.obrigatorio}")
     private TipoInscricaoDTO tipoInscricao;
 
-    @NotNull
-    @Size(max = 20)
+    @NotNull(message = "{inscricaoEstadual.obrigatorio}")
+    @Size(max = 20, message = "{inscricaoEstadual.tamanhoMaximo}")
     private String inscricaoEstadual;
 
-    @NotNull
+    @NotNull(message = "{cnpj.obrigatorio}")
     private BigDecimal cnpj;
 
-    @NotNull
+    @NotNull(message = "{revenda.obrigatorio}")
     private Boolean revenda;
 
-    @NotNull
+    @NotNull(message = "{situacaoCadastro.obrigatorio}")
     private SituacaoCadastroDTO situacaoCadastro;
 
-    @NotNull
+    @NotNull(message = "{tipoPagamento.obrigatorio}")
     private TipoPagamentoDTO tipoPagamento;
 
-    @NotNull
+    @NotNull(message = "{numeroDoc.obrigatorio}")
     private Integer numeroDoc;
 
-    @NotNull
+    @NotNull(message = "{pedidoMinimoQtd.obrigatorio}")
     private Integer pedidoMinimoQtd;
 
-    @NotNull
+    @NotNull(message = "{pedidoMinimoValor.obrigatorio}")
     private BigDecimal pedidoMinimoValor;
 
-    @NotNull
-    @Size(max = 4)
+    @NotNull(message = "{serienf.obrigatorio}")
+    @Size(max = 4, message = "{serienf.tamanhoMaximo}")
     private String serienf;
 
-    @NotNull
+    @NotNull(message = "{descontoFunRural.obrigatorio}")
     private Boolean descontoFunRural;
 
-    @NotNull
+    @NotNull(message = "{senha.obrigatorio}")
     private Integer senha;
 
     private TipoRecebimentoDTO tipoRecebimento;
 
-    @NotNull
-    @Size(max = 6)
+    @NotNull(message = "{agencia.obrigatorio}")
+    @Size(max = 6, message = "{agencia.tamanhoMaximo}")
     private String agencia;
 
-    @NotNull
-    @Size(max = 2)
+    @NotNull(message = "{digitoAgencia.obrigatorio}")
+    @Size(max = 2, message = "{digitoAgencia.tamanhoMaximo}")
     private String digitoAgencia;
 
-    @NotNull
-    @Size(max = 12)
+    @NotNull(message = "{conta.obrigatorio}")
+    @Size(max = 12, message = "{conta.tamanhoMaximo}")
     private String conta;
 
-    @NotNull
-    @Size(max = 2)
+    @NotNull(message = "{digitoConta.obrigatorio}")
+    @Size(max = 2, message = "{digitoConta.tamanhoMaximo}")
     private String digitoConta;
 
     private BancoDTO banco;
 
-    @NotNull
-    @Size(max = 40)
+    @NotNull(message = "{enderecoCobranca.obrigatorio}")
+    @Size(max = 40, message = "{enderecoCobranca.tamanhoMaximo}")
     private String enderecoCobranca;
 
-    @NotNull
-    @Size(max = 30)
+    @NotNull(message = "{bairroCobranca.obrigatorio}")
+    @Size(max = 30, message = "{bairroCobranca.tamanhoMaximo}")
     private String bairroCobranca;
 
-    @NotNull
+    @NotNull(message = "{cepCobranca.obrigatorio}")
     private BigDecimal cepCobranca;
 
     private MunicipioDTO municipioCobranca;
 
     private EstadoDTO estadoCobranca;
 
-    @NotNull
+    @NotNull(message = "{bloqueado.obrigatorio}")
     private Boolean bloqueado;
 
     private TipoMotivoFornecedorDTO tipoMotivoFornecedor;
 
     private Instant datasIntegra;
 
-    @NotNull
+    @NotNull(message = "{tipoEmpresa.obrigatorio}")
     private TipoEmpresaDTO tipoEmpresa;
 
-    @NotNull
-    @Size(max = 9)
+    @NotNull(message = "{inscricaoSuframa.obrigatorio}")
+    @Size(max = 9, message = "{inscricaoSuframa.tamanhoMaximo}")
     private String inscricaoSuframa;
 
-    @NotNull
+    @NotNull(message = "{utilizaIva.obrigatorio}")
     private Boolean utilizaIva;
 
     private FamiliaFornecedorDTO familiaFornecedor;
 
     private TipoInspecaoDTO tipoInspecao;
 
-    @NotNull
+    @NotNull(message = "{numeroInspecao.obrigatorio}")
     private Integer numeroInspecao;
 
     private TipoTrocaDTO tipoTroca;
 
-    @NotNull
+    @NotNull(message = "{tipoFornecedor.obrigatorio}")
     private TipoFornecedorDTO tipoFornecedor;
 
     private ContaContabilFinanceiroDTO contaContabilFinanceiro;
 
-    @NotNull
+    @NotNull(message = "{utilizaNfe.obrigatorio}")
     private Boolean utilizaNfe;
 
-    @NotNull
+    @NotNull(message = "{dataCadastro.obrigatorio}")
     private LocalDate dataCadastro;
 
-    @NotNull
+    @NotNull(message = "{utilizaConferencia.obrigatorio}")
     private Boolean utilizaConferencia;
 
-    @NotNull
-    @Size(max = 6)
+    @NotNull(message = "{numero.obrigatorio}")
+    @Size(max = 6, message = "{numero.tamanhoMaximo}")
     private String numero;
 
-    @NotNull
+    @NotNull(message = "{permiteNfSemPedido.obrigatorio}")
     private Boolean permiteNfSemPedido;
 
-    @NotNull
-    @Size(max = 2)
+    @NotNull(message = "{modeloNf.obrigatorio}")
+    @Size(max = 2, message = "{modeloNf.tamanhoMaximo}")
     private String modeloNf;
 
-    @NotNull
+    @NotNull(message = "{emiteNf.obrigatorio}")
     private Boolean emiteNf;
 
-    @NotNull
+    @NotNull(message = "{tipoNegociacao.obrigatorio}")
     private Integer tipoNegociacao;
 
-    @NotNull
+    @NotNull(message = "{utilizaCrossDocking.obrigatorio}")
     private Boolean utilizaCrossDocking;
 
     private LojaDTO lojaCrossDocking;
 
-    @NotNull
-    @Size(max = 2500)
+    @NotNull(message = "{observacao.obrigatorio}")
+    @Size(max = 2500, message = "{observacao.tamanhoMaximo}")
     private String observacao;
 
-    @NotNull
+    @NotNull(message = "{pais.obrigatorio}")
     private PaisDTO pais;
 
-    @Size(max = 20)
+    @Size(max = 20, message = "{inscricaoMunicipal.tamanhoMaximo}")
     private String inscricaoMunicipal;
 
     private ContaContabilFiscalDTO contaContabilFiscalPassivo;
 
-    @NotNull
-    @Size(max = 6)
+    @NotNull(message = "{numeroCobranca.obrigatorio}")
+    @Size(max = 6, message = "{numeroCobranca.tamanhoMaximo}")
     private String numeroCobranca;
 
-    @NotNull
-    @Size(max = 30)
+    @NotNull(message = "{complemento.obrigatorio}")
+    @Size(max = 30, message = "{complemento.tamanhoMaximo}")
     private String complemento;
 
-    @NotNull
-    @Size(max = 30)
+    @NotNull(message = "{complementoCobranca.obrigatorio}")
+    @Size(max = 30, message = "{complementoCobranca.tamanhoMaximo}")
     private String complementoCobranca;
 
     private ContaContabilFiscalDTO contaContabilFiscalAtivo;
 
-    @NotNull
+    @NotNull(message = "{utilizaEdi.obrigatorio}")
     private Boolean utilizaEdi;
 
-    @NotNull
+    @NotNull(message = "{tipoRegraVencimento.obrigatorio}")
     private Integer tipoRegraVencimento;
 
     private Boolean nfEmitidaPostoFiscal;
@@ -219,7 +219,7 @@ public class FornecedorDTO {
 
     private Boolean utilizaProdepe;
 
-    @NotNull
+    @NotNull(message = "{tipoNegociacaoCompra.obrigatorio}")
     private TipoNegociacaoCompraDTO tipoNegociacaoCompra;
 
     private TipoCustoDevolucaoTrocaDTO tipoCustoDevolucaoTroca;
@@ -230,7 +230,7 @@ public class FornecedorDTO {
 
     private IndicativoSenarDTO indicativoSenar;
 
-    @NotNull
+    @NotNull(message = "{antecipacaoPagamento.obrigatorio}")
     private Boolean antecipacaoPagamento;
 
     private BigDecimal percentualCreditoIcmssn;

@@ -17,7 +17,6 @@ import java.time.LocalDate;
 public class Fornecedor {
 
     @Id
-    @NotNull
     @Column(name = "id", nullable = false)
     private Integer id;
 
