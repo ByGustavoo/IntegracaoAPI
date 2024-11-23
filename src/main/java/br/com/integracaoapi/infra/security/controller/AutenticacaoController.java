@@ -1,6 +1,7 @@
 package br.com.integracaoapi.infra.security.controller;
 
 import br.com.integracaoapi.infra.security.dto.AuthenticationResponseDTO;
+import br.com.integracaoapi.infra.security.dto.TokenResponseDTO;
 import br.com.integracaoapi.infra.security.service.AutenticacaoService;
 import br.com.integracaoapi.model.dto.AutenticacaoDTO;
 import jakarta.validation.Valid;
@@ -30,7 +31,7 @@ public class AutenticacaoController {
     }
 
     @PostMapping
-    public ResponseEntity<String> signIn(@RequestBody @Valid AutenticacaoDTO autenticacaoDTO) {
+    public ResponseEntity<TokenResponseDTO> signIn(@RequestBody @Valid AutenticacaoDTO autenticacaoDTO) {
         var authentication = authenticationManager.authenticate(autenticacaoDTO.convertAuthentication());
         return ResponseEntity.ok(autenticacaoService.generateTokenForAuthentication(authentication));
     }

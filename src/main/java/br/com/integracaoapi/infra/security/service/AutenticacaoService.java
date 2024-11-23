@@ -1,6 +1,7 @@
 package br.com.integracaoapi.infra.security.service;
 
 import br.com.integracaoapi.infra.security.dto.AuthenticationResponseDTO;
+import br.com.integracaoapi.infra.security.dto.TokenResponseDTO;
 import br.com.integracaoapi.infra.security.repository.AutenticacaoRepository;
 import br.com.integracaoapi.model.dto.AutenticacaoDTO;
 import br.com.integracaoapi.model.entity.Autenticacao;
@@ -35,8 +36,9 @@ public class AutenticacaoService implements UserDetailsService {
         return autenticacaoRepository.findByUsername(username);
     }
 
-    public String generateTokenForAuthentication(Authentication authentication) {
-        return convertAuthenticationToToken(authentication);
+    public TokenResponseDTO generateTokenForAuthentication(Authentication authentication) {
+        String token = convertAuthenticationToToken(authentication);
+        return new TokenResponseDTO(token);
     }
 
     private void validateAuthentication(AutenticacaoDTO autenticacaoDTO) {
