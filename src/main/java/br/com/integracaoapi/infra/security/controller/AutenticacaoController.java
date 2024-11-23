@@ -25,7 +25,8 @@ public class AutenticacaoController {
     @PostMapping("/save")
     @Transactional
     public ResponseEntity<AutenticacaoDTO> saveAuthentication(@RequestBody @Valid AutenticacaoDTO autenticacaoDTO) {
-        return ResponseEntity.ok(autenticacaoService.saveAuthentication(autenticacaoDTO));
+        autenticacaoService.saveAuthentication(autenticacaoDTO);
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping

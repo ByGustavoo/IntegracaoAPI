@@ -18,10 +18,10 @@ public class AutenticacaoService implements UserDetailsService {
     @Autowired
     private AutenticacaoRepository autenticacaoRepository;
 
-    public AutenticacaoDTO saveAuthentication(AutenticacaoDTO autenticacaoDTO) {
+    public void saveAuthentication(AutenticacaoDTO autenticacaoDTO) {
+        checkUsername(autenticacaoDTO.getUsername());
         encryptPassword(autenticacaoDTO);
-
-        return new AutenticacaoDTO(autenticacaoRepository.save(autenticacaoDTO.toEntity()));
+        autenticacaoRepository.save(autenticacaoDTO.toEntity());
     }
 
     @Override
@@ -29,7 +29,16 @@ public class AutenticacaoService implements UserDetailsService {
         return autenticacaoRepository.findByUsername(username);
     }
 
-    public void encryptPassword(AutenticacaoDTO autenticacaoDTO) {
+    private void encryptPassword(AutenticacaoDTO autenticacaoDTO) {
         autenticacaoDTO.setPassword(passwordEncoder.encode(autenticacaoDTO.getPassword()));
+    }
+
+    private void checkUsername(String username) {
+        var findUser = autenticacaoRepository.findByUsername(username);
+
+        if (findUser != null) {
+            throw new RuntimeException("ERRO! Esse usuário já está cadastrado!");
+        }
+
     }
 }
