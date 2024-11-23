@@ -1,8 +1,11 @@
 package br.com.integracaoapi.infra.security.service;
 
+import br.com.integracaoapi.infra.security.dto.AuthenticationResponseDTO;
 import br.com.integracaoapi.infra.security.repository.AutenticacaoRepository;
 import br.com.integracaoapi.model.dto.AutenticacaoDTO;
+import br.com.integracaoapi.model.entity.Autenticacao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,10 +21,12 @@ public class AutenticacaoService implements UserDetailsService {
     @Autowired
     private AutenticacaoRepository autenticacaoRepository;
 
-    public void saveAuthentication(AutenticacaoDTO autenticacaoDTO) {
+    public AuthenticationResponseDTO saveAuthentication(AutenticacaoDTO autenticacaoDTO) {
         checkUsername(autenticacaoDTO.getUsername());
         encryptPassword(autenticacaoDTO);
         autenticacaoRepository.save(autenticacaoDTO.toEntity());
+
+        return AuthenticationResponseDTO.authenticationResponseDTO;
     }
 
     @Override
@@ -39,6 +44,5 @@ public class AutenticacaoService implements UserDetailsService {
         if (findUser != null) {
             throw new RuntimeException("ERRO! Esse usuário já está cadastrado!");
         }
-
     }
 }

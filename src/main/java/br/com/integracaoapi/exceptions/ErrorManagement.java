@@ -1,5 +1,6 @@
 package br.com.integracaoapi.exceptions;
 
+import br.com.integracaoapi.exceptions.dto.ForbiddenExceptionDTO;
 import br.com.integracaoapi.exceptions.dto.NotFoundResponseDTO;
 import br.com.integracaoapi.exceptions.dto.BadRequestResponseDTO;
 import jakarta.persistence.EntityNotFoundException;
@@ -8,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.nio.file.AccessDeniedException;
 
 @RestControllerAdvice
 public class ErrorManagement {
@@ -21,5 +24,10 @@ public class ErrorManagement {
     public ResponseEntity<?> badRequestException(MethodArgumentNotValidException ex) {
         var erros = ex.getFieldErrors();
         return ResponseEntity.badRequest().body(erros.stream().map(BadRequestResponseDTO::new).toList());
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<?> forbiddenException() {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ForbiddenExceptionDTO.forbiddenResponseDTO);
     }
 }

@@ -1,4 +1,4 @@
-package br.com.integracaoapi.exceptions.dto;
+package br.com.integracaoapi.infra.security.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
@@ -7,28 +7,26 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class NotFoundResponseDTO {
+public class AuthenticationResponseDTO {
 
     private int statusCode;
-    private String error;
     private String message;
     private String details;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy - HH:mm:ss")
     private LocalDateTime timestamp;
 
-    public NotFoundResponseDTO(int statusCode, String error, String message, String details) {
+    public AuthenticationResponseDTO(int statusCode, String message, String details, LocalDateTime timestamp) {
         this.statusCode = statusCode;
-        this.error = error;
         this.message = message;
         this.details = details;
         this.timestamp = LocalDateTime.now();
     }
 
-    public static NotFoundResponseDTO notFoundResponseDTO = new NotFoundResponseDTO(
-            404,
-            "Not Found",
-            "Registro não encontrado!",
-            "Não foi possível localizar um registro com o ID informado!"
+    public static AuthenticationResponseDTO authenticationResponseDTO = new AuthenticationResponseDTO(
+            200,
+            "Ok!",
+            "O Usuário foi criado com sucesso!",
+            LocalDateTime.now()
     );
 }

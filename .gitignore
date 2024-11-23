@@ -2,6 +2,7 @@
 build/
 /build/
 /.gradle/
+.gradle/
 
 # Ignorar arquivos de configuração do IntelliJ
 /.idea/
