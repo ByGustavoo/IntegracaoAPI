@@ -5,7 +5,7 @@ import br.com.integracaoapi.infra.security.repository.AutenticacaoRepository;
 import br.com.integracaoapi.model.dto.AutenticacaoDTO;
 import br.com.integracaoapi.model.entity.Autenticacao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,22 +16,32 @@ import org.springframework.stereotype.Service;
 public class AutenticacaoService implements UserDetailsService {
 
     @Autowired
+    private TokenService tokenService;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Autowired
     private AutenticacaoRepository autenticacaoRepository;
 
     public AuthenticationResponseDTO saveAuthentication(AutenticacaoDTO autenticacaoDTO) {
-        checkUsername(autenticacaoDTO.getUsername());
-        encryptPassword(autenticacaoDTO);
+        validateAuthentication(autenticacaoDTO);
         autenticacaoRepository.save(autenticacaoDTO.toEntity());
-
         return AuthenticationResponseDTO.authenticationResponseDTO;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return autenticacaoRepository.findByUsername(username);
+    }
+
+    public String generateTokenForAuthentication(Authentication authentication) {
+        return convertAuthenticationToToken(authentication);
+    }
+
+    private void validateAuthentication(AutenticacaoDTO autenticacaoDTO) {
+        checkUsername(autenticacaoDTO.getUsername());
+        encryptPassword(autenticacaoDTO);
     }
 
     private void encryptPassword(AutenticacaoDTO autenticacaoDTO) {
@@ -44,5 +54,11 @@ public class AutenticacaoService implements UserDetailsService {
         if (findUser != null) {
             throw new RuntimeException("ERRO! Esse usuário já está cadastrado!");
         }
+    }
+
+    private String convertAuthenticationToToken(Authentication authentication) {
+        var authenticationToEntity = (Autenticacao) authentication.getPrincipal();
+        var entityToDTO = new AutenticacaoDTO(authenticationToEntity);
+        return tokenService.generateToken(entityToDTO);
     }
 }

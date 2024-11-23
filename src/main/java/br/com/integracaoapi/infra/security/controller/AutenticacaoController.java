@@ -2,7 +2,6 @@ package br.com.integracaoapi.infra.security.controller;
 
 import br.com.integracaoapi.infra.security.dto.AuthenticationResponseDTO;
 import br.com.integracaoapi.infra.security.service.AutenticacaoService;
-import br.com.integracaoapi.infra.security.service.TokenService;
 import br.com.integracaoapi.model.dto.AutenticacaoDTO;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class AutenticacaoController {
 
     @Autowired
-    private TokenService tokenService;
-
-    @Autowired
     private AutenticacaoService autenticacaoService;
 
     @Autowired
@@ -36,7 +32,6 @@ public class AutenticacaoController {
     @PostMapping
     public ResponseEntity<String> signIn(@RequestBody @Valid AutenticacaoDTO autenticacaoDTO) {
         var authentication = authenticationManager.authenticate(autenticacaoDTO.convertAuthentication());
-        var token = tokenService.generateToken((AutenticacaoDTO) authentication.getPrincipal());
-        return ResponseEntity.ok(token);
+        return ResponseEntity.ok(autenticacaoService.generateTokenForAuthentication(authentication));
     }
 }
