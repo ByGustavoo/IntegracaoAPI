@@ -8,12 +8,13 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class ForbiddenExceptionDTO {
+
     private int statusCode;
     private String error;
     private String message;
     private String details;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy - HH:mm:ss")
     private LocalDateTime timestamp;
 
     public ForbiddenExceptionDTO(int statusCode, String error, String message, String details) {
