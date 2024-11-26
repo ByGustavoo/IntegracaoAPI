@@ -1,4 +1,4 @@
-package br.com.integracaoapi.infra.security.dto;
+package br.com.integracaoapi.infra.security.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

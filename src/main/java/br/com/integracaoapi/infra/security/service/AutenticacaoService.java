@@ -1,10 +1,10 @@
 package br.com.integracaoapi.infra.security.service;
 
-import br.com.integracaoapi.infra.security.dto.AuthenticationResponseDTO;
-import br.com.integracaoapi.infra.security.dto.TokenResponseDTO;
+import br.com.integracaoapi.infra.security.model.dto.AuthenticationResponseDTO;
+import br.com.integracaoapi.infra.security.model.dto.TokenResponseDTO;
 import br.com.integracaoapi.infra.security.repository.AutenticacaoRepository;
-import br.com.integracaoapi.model.dto.AutenticacaoDTO;
-import br.com.integracaoapi.model.entity.Autenticacao;
+import br.com.integracaoapi.infra.security.model.dto.AutenticacaoDTO;
+import br.com.integracaoapi.infra.security.model.entity.Autenticacao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,4 +1,4 @@
-package br.com.integracaoapi.model.entity;
+package br.com.integracaoapi.infra.security.model.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

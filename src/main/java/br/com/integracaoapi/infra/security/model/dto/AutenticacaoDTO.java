@@ -1,6 +1,6 @@
-package br.com.integracaoapi.model.dto;
+package br.com.integracaoapi.infra.security.model.dto;
 
-import br.com.integracaoapi.model.entity.Autenticacao;
+import br.com.integracaoapi.infra.security.model.entity.Autenticacao;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
 package br.com.integracaoapi.infra.security.service;
 
-import br.com.integracaoapi.model.dto.AutenticacaoDTO;
+import br.com.integracaoapi.infra.security.model.dto.AutenticacaoDTO;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;

@@ -1,6 +1,6 @@
 package br.com.integracaoapi.infra.security.repository;
 
-import br.com.integracaoapi.model.entity.Autenticacao;
+import br.com.integracaoapi.infra.security.model.entity.Autenticacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;

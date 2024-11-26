@@ -1,9 +1,9 @@
 package br.com.integracaoapi.infra.security.controller;
 
-import br.com.integracaoapi.infra.security.dto.AuthenticationResponseDTO;
-import br.com.integracaoapi.infra.security.dto.TokenResponseDTO;
+import br.com.integracaoapi.infra.security.model.dto.AuthenticationResponseDTO;
+import br.com.integracaoapi.infra.security.model.dto.TokenResponseDTO;
 import br.com.integracaoapi.infra.security.service.AutenticacaoService;
-import br.com.integracaoapi.model.dto.AutenticacaoDTO;
+import br.com.integracaoapi.infra.security.model.dto.AutenticacaoDTO;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
