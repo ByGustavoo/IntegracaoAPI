@@ -27,7 +27,7 @@ public class ErrorManagement {
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<?> badRequestException(HttpMessageNotReadableException ex) {
+    public ResponseEntity<?> httpMessageNotReadableException(HttpMessageNotReadableException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
 
@@ -55,5 +55,16 @@ public class ErrorManagement {
                 ex.getLocalizedMessage());
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(internalServerErrorResponseDTO);
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<?> runtimeException(RuntimeException ex) {
+        RuntimeResponseDTO runtimeResponseDTO = new RuntimeResponseDTO(
+                HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                "Internal Server Error",
+                "Ocorreu um erro interno no Servidor! Por favor, tente novamente.",
+                ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(runtimeResponseDTO);
     }
 }

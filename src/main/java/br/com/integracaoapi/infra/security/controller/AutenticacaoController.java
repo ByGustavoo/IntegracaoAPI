@@ -1,7 +1,7 @@
 package br.com.integracaoapi.infra.security.controller;
 
-import br.com.integracaoapi.infra.security.model.dto.AuthenticationResponseDTO;
-import br.com.integracaoapi.infra.security.model.dto.TokenResponseDTO;
+import br.com.integracaoapi.infra.security.model.response.AuthenticationResponseDTO;
+import br.com.integracaoapi.infra.security.model.response.TokenResponseDTO;
 import br.com.integracaoapi.infra.security.service.AutenticacaoService;
 import br.com.integracaoapi.infra.security.model.dto.AutenticacaoDTO;
 import jakarta.validation.Valid;

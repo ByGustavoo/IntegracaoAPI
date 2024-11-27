@@ -1,4 +1,4 @@
-package br.com.integracaoapi.infra.security.model.dto;
+package br.com.integracaoapi.infra.security.model.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;

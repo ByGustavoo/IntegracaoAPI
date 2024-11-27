@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class BadCredentialsResponseDTO {
+public class RuntimeResponseDTO {
 
     private int status;
     private String error;
@@ -17,18 +17,11 @@ public class BadCredentialsResponseDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy - HH:mm:ss")
     private LocalDateTime timestamp;
 
-    public BadCredentialsResponseDTO(int status, String error, String message, String details) {
+    public RuntimeResponseDTO(int status, String error, String message, String details) {
         this.status = status;
         this.error = error;
         this.message = message;
         this.details = details;
         this.timestamp = LocalDateTime.now();
     }
-
-    public static BadCredentialsResponseDTO badCredentialsResponseDTO = new BadCredentialsResponseDTO(
-            401,
-            "Unauthorized",
-            "Credenciais Inválidas!",
-            "Não foi possível autenticar o usuário com as credenciais informadas!"
-    );
 }

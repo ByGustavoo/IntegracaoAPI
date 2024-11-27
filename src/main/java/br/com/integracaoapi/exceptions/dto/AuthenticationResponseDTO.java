@@ -29,6 +29,6 @@ public class AuthenticationResponseDTO {
             401,
             "Unauthorized",
             "Credenciais Inválidas!",
-            "Não foi possível autenticar o Usuário com as credenciais informadas!"
+            "Não foi possível autenticar o usuário com as credenciais informadas!"
     );
 }
