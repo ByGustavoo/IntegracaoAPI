@@ -2,12 +2,14 @@ package br.com.integracaoapi.exceptions.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Getter;
 import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@JsonPropertyOrder({"status", "error", "message", "Exception", "timestamp"})
 public class InternalServerErrorResponseDTO {
 
     private int status;
@@ -24,7 +26,7 @@ public class InternalServerErrorResponseDTO {
         this.status = status;
         this.error = error;
         this.message = message;
-        this.details = details;
         this.timestamp = LocalDateTime.now();
+        this.details = details;
     }
 }
