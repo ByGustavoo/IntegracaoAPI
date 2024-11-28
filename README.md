@@ -35,7 +35,7 @@ $ http://localhost:8080/auth/save
 
  🔹 POST
 ```bash
-# Autentica o usuário gerando um Token JWT
+# Gera um Token JWT 
 $ http://localhost:8080/auth
 ```
 
