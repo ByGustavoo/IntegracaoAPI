@@ -22,6 +22,26 @@
 
   <br> 
 
+
+## 🌐 Autenticação
+
+ <br>
+
+ 🔹 POST
+```bash
+# Cria um usuário
+$ http://localhost:8080/auth/save
+```
+
+ 🔹 POST
+```bash
+# Autentica o usuário gerando um Token JWT
+$ http://localhost:8080/auth
+```
+
+ <br>
+
+
 ## 🔶 Principais Métodos Disponíveis
 
  <br> 
