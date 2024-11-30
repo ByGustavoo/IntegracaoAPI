@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class AuthenticationResponseDTO {
+public class NotFoundExceptionResponseDTO {
 
     private int status;
     private String error;
@@ -17,7 +17,7 @@ public class AuthenticationResponseDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy - HH:mm:ss")
     private LocalDateTime timestamp;
 
-    public AuthenticationResponseDTO(int status, String error, String message, String details) {
+    public NotFoundExceptionResponseDTO(int status, String error, String message, String details) {
         this.status = status;
         this.error = error;
         this.message = message;
@@ -25,10 +25,10 @@ public class AuthenticationResponseDTO {
         this.timestamp = LocalDateTime.now();
     }
 
-    public static AuthenticationResponseDTO authenticationResponseDTO = new AuthenticationResponseDTO(
-            401,
-            "Unauthorized",
-            "Credenciais Inválidas!",
-            "Não foi possível autenticar o usuário com as credenciais informadas!"
+    public static NotFoundExceptionResponseDTO notFoundExceptionResponseDTO = new NotFoundExceptionResponseDTO(
+            404,
+            "Not Found",
+            "Registro não encontrado!",
+            "Não foi possível localizar um registro com o ID informado!"
     );
 }

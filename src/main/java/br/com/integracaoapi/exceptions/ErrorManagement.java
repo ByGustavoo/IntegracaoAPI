@@ -17,13 +17,13 @@ public class ErrorManagement {
 
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<?> notFoundException() {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(NotFoundResponseDTO.notFoundResponseDTO);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(NotFoundExceptionResponseDTO.notFoundExceptionResponseDTO);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<?> badRequestException(MethodArgumentNotValidException ex) {
         var erros = ex.getFieldErrors();
-        return ResponseEntity.badRequest().body(erros.stream().map(BadRequestResponseDTO::new).toList());
+        return ResponseEntity.badRequest().body(erros.stream().map(BadRequestExceptionResponseDTO::new).toList());
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
@@ -33,17 +33,17 @@ public class ErrorManagement {
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<?> invalidCredentialsException() {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(BadCredentialsResponseDTO.badCredentialsResponseDTO);
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(BadCredentialsExceptionResponseDTO.badCredentialsExceptionResponseDTO);
     }
 
     @ExceptionHandler(AuthenticationException.class)
     public ResponseEntity<?> authenticationException() {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(AuthenticationResponseDTO.authenticationResponseDTO);
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(AuthenticationExceptionResponseDTO.authenticationExceptionResponseDTO);
     }
 
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<?> accessDeniedException() {
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ForbiddenResonseDTO.forbiddenResponseDTO);
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ForbiddenExceptionResonseDTO.forbiddenResponseDTO);
     }
 
     @ExceptionHandler(Exception.class)

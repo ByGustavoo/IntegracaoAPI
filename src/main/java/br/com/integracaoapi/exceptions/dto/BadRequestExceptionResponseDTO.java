@@ -10,12 +10,12 @@ import org.springframework.validation.FieldError;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BadRequestResponseDTO {
+public class BadRequestExceptionResponseDTO {
 
     private String campo;
     private String mensagem;
 
-    public BadRequestResponseDTO(FieldError fieldError) {
+    public BadRequestExceptionResponseDTO(FieldError fieldError) {
         this.campo = fieldError.getField();
         this.mensagem = fieldError.getDefaultMessage();
     }

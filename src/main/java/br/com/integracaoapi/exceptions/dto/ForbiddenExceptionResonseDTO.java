@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class ForbiddenResonseDTO {
+public class ForbiddenExceptionResonseDTO {
 
     private int statusCode;
     private String error;
@@ -17,7 +17,7 @@ public class ForbiddenResonseDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy - HH:mm:ss")
     private LocalDateTime timestamp;
 
-    public ForbiddenResonseDTO(int statusCode, String error, String message, String details) {
+    public ForbiddenExceptionResonseDTO(int statusCode, String error, String message, String details) {
         this.statusCode = statusCode;
         this.error = error;
         this.message = message;
@@ -25,7 +25,7 @@ public class ForbiddenResonseDTO {
         this.timestamp = LocalDateTime.now();
     }
 
-    public static ForbiddenResonseDTO forbiddenResponseDTO = new ForbiddenResonseDTO(
+    public static ForbiddenExceptionResonseDTO forbiddenResponseDTO = new ForbiddenExceptionResonseDTO(
             403,
             "Forbidden",
             "Acesso Negado!",
