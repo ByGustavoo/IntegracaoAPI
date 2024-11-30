@@ -25,13 +25,6 @@ public class TokenExceptionResponseDTO {
         this.timestamp = LocalDateTime.now();
     }
 
-    public static TokenExceptionResponseDTO expiredTokenResponseDTO = new TokenExceptionResponseDTO(
-            403,
-            "Forbidden",
-            "Token Expirado!",
-            "O Token de acesso está expirado! Por favor, autentique-se novamente!"
-    );
-
     public static TokenExceptionResponseDTO invalidTokenResponseDTO = new TokenExceptionResponseDTO(
             403,
             "Forbidden",

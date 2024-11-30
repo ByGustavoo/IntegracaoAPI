@@ -49,9 +49,6 @@ public class SecurityFilter extends OncePerRequestFilter {
 
             filterChain.doFilter(request, response);
         }
-        catch (TokenExpiredException ex) {
-            expiredTokenResponse(response);
-        }
         catch (JWTVerificationException ex) {
             invalidTokenResponseDTO(response);
         }
@@ -65,15 +62,6 @@ public class SecurityFilter extends OncePerRequestFilter {
         }
 
         return null;
-    }
-
-    private void expiredTokenResponse(HttpServletResponse response) throws IOException {
-        TokenExceptionResponseDTO expiredTokenResponseDTO = TokenExceptionResponseDTO.expiredTokenResponseDTO;
-
-        response.setStatus(HttpStatus.FORBIDDEN.value());
-        response.setContentType("application/json;charset=UTF-8");
-
-        response.getWriter().write(objectMapper.writeValueAsString(expiredTokenResponseDTO));
     }
 
     private void invalidTokenResponseDTO(HttpServletResponse response) throws IOException {
