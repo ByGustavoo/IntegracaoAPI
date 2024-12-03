@@ -29,16 +29,16 @@
 
  <br>
 
- 🔹 POST
+  🔹 POST
 ```bash
-# Cria um usuário
-$ http://localhost:8080/auth/save
+# Gera um Token JWT 
+$ http://localhost:8080/auth
 ```
 
  🔹 POST
 ```bash
-# Gera um Token JWT 
-$ http://localhost:8080/auth
+# Cria um usuário
+$ http://localhost:8080/auth/save
 ```
 
  <br>
