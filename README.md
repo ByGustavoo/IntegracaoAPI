@@ -25,6 +25,18 @@
   <br> 
 
 
+## 📑 Swagger UI
+
+<br>
+
+```bash
+# URL para acessar a documentação da API 
+$ http://localhost:8080/swagger-ui/index.html#/
+```
+
+<br>
+
+
 ## 🌐 Autenticação
 
  <br>
