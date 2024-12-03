@@ -2,6 +2,8 @@ package br.com.integracaoapi.controller;
 
 import br.com.integracaoapi.model.dto.FornecedorDTO;
 import br.com.integracaoapi.service.FornecedorService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,7 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Tag(name = "Fornecedor")
 @RequestMapping("/fornecedor")
+@SecurityRequirement(name = "Authorization")
 public class FornecedorController {
 
     @Autowired
