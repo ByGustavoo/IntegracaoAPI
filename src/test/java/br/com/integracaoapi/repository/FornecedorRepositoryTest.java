@@ -30,7 +30,7 @@ public class FornecedorRepositoryTest {
     }
 
     @Test
-    @DisplayName("Deve retornar todos os Fornecedores com a Situação Cadastro de Excluído")
+    @DisplayName("Deve retornar todos os Fornecedores com a Situação Cadastro Excluído")
     void findAllBySituacaoCadastroExcluido() {
         var fornecedoresExcluidos = fornecedorRepository.findAllBySituacaoCadastroDescricao("EXCLUIDO", Pageable.unpaged());
         assertThat(fornecedoresExcluidos).isNotEmpty();
