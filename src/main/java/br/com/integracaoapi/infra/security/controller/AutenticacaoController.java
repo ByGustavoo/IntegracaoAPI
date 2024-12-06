@@ -4,6 +4,7 @@ import br.com.integracaoapi.infra.security.model.response.AuthenticationResponse
 import br.com.integracaoapi.infra.security.model.response.TokenResponseDTO;
 import br.com.integracaoapi.infra.security.service.AutenticacaoService;
 import br.com.integracaoapi.infra.security.model.dto.AutenticacaoDTO;
+import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -27,6 +28,7 @@ public class AutenticacaoController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Hidden
     @PostMapping("/save")
     @Transactional
     public ResponseEntity<AuthenticationResponseDTO> signUp(@RequestBody @Valid AutenticacaoDTO autenticacaoDTO) {
