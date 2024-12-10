@@ -59,7 +59,7 @@ $ /home/<nome-do-usuario>/vr/vr.properties
 
 **Baixe o arquivo `vr.properties` e coloque-o no diretório apropriado.**
 
-🔹 [vr.properties](./vr.properties)
+🔹 [vr.properties](/dist/vr.properties)
 
 
 <br>
