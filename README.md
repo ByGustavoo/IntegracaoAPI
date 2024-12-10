@@ -43,7 +43,7 @@ Para que a API consiga se conectar ao Banco de Dados, é necessário que o arqui
 
  <br>
 
-🟦 Windows
+🌐 Windows
 ```bash
 # Caminho para Windows
 $ C:\Users\<nome-do-usuario>\vr\vr.properties
@@ -65,7 +65,7 @@ $ /home/<nome-do-usuario>/vr/vr.properties
 <br>
 
 
-## 🌐 Autenticação
+## 🔐 Autenticação
 
  <br>
 
@@ -73,6 +73,14 @@ $ /home/<nome-do-usuario>/vr/vr.properties
 ```bash
 # Gera um Token JWT 
 $ http://localhost:8080/auth
+```
+
+```bash
+# Exemplo de requisição
+{
+    "username": "VRSoftware",
+    "password": "integracao_@VRSoftware"
+}
 ```
 
  <br>
