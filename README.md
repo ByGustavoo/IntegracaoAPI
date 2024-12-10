@@ -75,6 +75,8 @@ $ /home/<nome-do-usuario>/vr/vr.properties
 $ http://localhost:8080/auth
 ```
 
+ <br>
+ 
 ```bash
 # Exemplo de requisição
 {
