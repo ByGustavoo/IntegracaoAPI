@@ -37,6 +37,28 @@ $ http://localhost:8080/swagger-ui/index.html#/
 <br>
 
 
+## 🐘 Banco de Dados
+
+Para que a API consiga se conectar ao Banco de Dados, é necessário que o arquivo `vr.properties` esteja localizado no diretório home do seu computador, dentro da pasta `vr`, funcionando tanto em sistemas Linux quanto Windows.
+
+ <br>
+
+🟦 Windows
+```bash
+# Caminho para Windows
+$ C:\Users\<nomeDoUsuário>\vr\vr.properties
+```
+
+🐧 Linux
+```bash
+# Caminho para Linux
+$ /home/<nomeDoUsuário>/vr/vr.properties
+```
+
+
+<br>
+
+
 ## 🌐 Autenticação
 
  <br>
@@ -45,12 +67,6 @@ $ http://localhost:8080/swagger-ui/index.html#/
 ```bash
 # Gera um Token JWT 
 $ http://localhost:8080/auth
-```
-
- 🔹 POST
-```bash
-# Cria um usuário
-$ http://localhost:8080/auth/save
 ```
 
  <br>
