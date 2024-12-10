@@ -46,13 +46,13 @@ Para que a API consiga se conectar ao Banco de Dados, é necessário que o arqui
 🟦 Windows
 ```bash
 # Caminho para Windows
-$ C:\Users\<nomeDoUsuário>\vr\vr.properties
+$ C:\Users\<nome-do-usuario>\vr\vr.properties
 ```
 
 🐧 Linux
 ```bash
 # Caminho para Linux
-$ /home/<nomeDoUsuário>/vr/vr.properties
+$ /home/<nome-do-usuario>/vr/vr.properties
 ```
 
 
