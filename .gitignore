@@ -1,13 +1,14 @@
 # Ignorar diretórios de build do Gradle
-build/
 /build/
 /.gradle/
-.gradle/
-.gradle
 
 # Ignorar arquivos de configuração do IntelliJ
 /.idea/
-.idea/
 
 # Ignorar arquivos de classe Java compilados
 *.class
+
+# Ignorar arquivos de checksums do Gradle
+.gradle/8.10.2/checksums/checksums.lock
+.gradle/8.10.2/checksums/sha1-checksums.bin
+.gradle/buildOutputCleanup/outputFiles.bin

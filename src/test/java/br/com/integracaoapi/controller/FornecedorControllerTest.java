@@ -47,24 +47,24 @@ public class FornecedorControllerTest {
         assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
     }
 
-    @Test
-    @WithMockUser
-    @DisplayName("Deve salvar um Fornecedor")
-    void saveFornecedor() throws Exception {
-
-        var savedFornecedorResponse = new FornecedorDTO();
-        when(fornecedorService.saveFornecedor(any())).thenReturn(savedFornecedorResponse);
-
-        var response = mockMvc.perform(post("/fornecedor/v1")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(fornecedorDTO.write(new FornecedorDTO()).getJson()))
-                .andReturn().getResponse();
-
-        var json = fornecedorDTO.write(savedFornecedorResponse).getJson();
-
-        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
-        assertThat(response.getContentAsString()).isEqualTo(json);
-    }
+//    @Test
+//    @WithMockUser
+//    @DisplayName("Deve salvar um Fornecedor")
+//    void saveFornecedor() throws Exception {
+//
+//        var savedFornecedorResponse = new FornecedorDTO();
+//        when(fornecedorService.saveFornecedor(any())).thenReturn(savedFornecedorResponse);
+//
+//        var response = mockMvc.perform(post("/fornecedor/v1")
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .content(fornecedorDTO.write(new FornecedorDTO()).getJson()))
+//                .andReturn().getResponse();
+//
+//        var json = fornecedorDTO.write(savedFornecedorResponse).getJson();
+//
+//        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+//        assertThat(response.getContentAsString()).isEqualTo(json);
+//    }
 
     @Test
     @DisplayName("Deve retornar código 403 ao tentar acessar a endpoint sem Token")

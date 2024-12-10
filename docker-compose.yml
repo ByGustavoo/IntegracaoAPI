@@ -1,0 +1,43 @@
+services:
+  database:
+    container_name: "postgres"
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    command: [ "-c", "standard_conforming_strings=off" ]
+    environment:
+      POSTGRES_DB: vr
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - internal-network
+
+  integracaoapi:
+    container_name: "IntegracaoAPI"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - internal-network
+    depends_on:
+      - database
+    environment:
+      DATABASE_IP: database
+      DATABASE_NAME: vr
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_PORT: 5432
+      SPRING_PROFILES_ACTIVE: prod
+      DATABASE_URL: jdbc:postgresql://database:5432/vr
+    ports:
+      - "8080:8080"
+    restart: always
+
+networks:
+  internal-network:
+    driver: bridge
+
+volumes:
+  postgres:

@@ -19,6 +19,18 @@ configurations {
 	}
 }
 
+tasks.named("bootJar") {
+	enabled = true
+}
+
+tasks.named("jar") {
+	enabled = false
+}
+
+tasks.named("bootJar") {
+	destinationDirectory.set(file("${projectDir}/dist"))
+}
+
 repositories {
 	mavenCentral()
 }
