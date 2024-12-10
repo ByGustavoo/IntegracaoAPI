@@ -55,6 +55,8 @@ $ C:\Users\<nome-do-usuario>\vr\vr.properties
 $ /home/<nome-do-usuario>/vr/vr.properties
 ```
 
+[Baixar o arquivo vr.properties](./resources/vr.properties)
+
 
 <br>
 
