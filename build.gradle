@@ -5,11 +5,11 @@ plugins {
 }
 
 group = 'br.com.integracaoapi'
-version = '0.0.4-06'
+version = '0.0.5-09'
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(17)
+		languageVersion = JavaLanguageVersion.of(21)
 	}
 }
 
