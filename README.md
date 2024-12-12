@@ -16,7 +16,7 @@
 
 * Intellij
 
-* Java 17
+* Java 21
 
 * Postgres 16
 
@@ -94,31 +94,31 @@ $ http://localhost:8080/auth
 
 🔹 GET
 ```bash
-# Retorna todos os registros.
+# Retorna todos os registros
 $ http://localhost:8080/fornecedor/v1
 ```
 
 🔹 GET
 ```bash
-# Retorna o registro pelo ID.
+# Retorna o registro pelo ID
 $ http://localhost:8080/fornecedor/v1/{💲id}
 ```
 
 🔹 POST
 ```bash
-# Salva um registro.
+# Salva um registro
 $ http://localhost:8080/fornecedor/v1
 ```
 
 🔹 PATCH
 ```bash
-# Atualiza um registro.
+# Atualiza um registro
 $ http://localhost:8080/fornecedor/v1/{💲id}
 ```
 
 🔹 DELETE
 ```bash
-# Deleta um registro.
+# Deleta um registro
 $ http://localhost:8080/fornecedor/v1/{💲id}
 ```
 
