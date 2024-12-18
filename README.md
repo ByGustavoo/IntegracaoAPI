@@ -95,7 +95,7 @@ $ http://localhost:8080/auth
  <br>
 
 
-## 🔶 Principais Métodos Disponíveis
+## 🔷 Principais Métodos Disponíveis
 
  <br> 
 
