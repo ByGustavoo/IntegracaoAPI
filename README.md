@@ -22,6 +22,7 @@
 
 * Spring Boot 3.3.5
 
+
   <br> 
 
 
@@ -34,6 +35,7 @@
 $ http://localhost:8080/swagger-ui/index.html#/
 ```
 
+
 <br>
 
 
@@ -41,7 +43,9 @@ $ http://localhost:8080/swagger-ui/index.html#/
 
 Para que a API consiga se conectar ao Banco de Dados, é necessário que o arquivo `vr.properties` esteja localizado no diretório home do seu computador, dentro da pasta `vr`, funcionando tanto em sistemas Linux quanto Windows.
 
+
  <br>
+
 
 🌐 Windows
 ```bash
@@ -55,7 +59,9 @@ $ C:\Users\<nome-do-usuario>\vr\vr.properties
 $ /home/<nome-do-usuario>/vr/vr.properties
 ```
 
+
  <br>
+
 
 **Baixe o arquivo `vr.properties` e coloque-o no diretório apropriado.**
 
@@ -84,6 +90,7 @@ $ http://localhost:8080/auth
     "password": "integracao_@VRSoftware"
 }
 ```
+
 
  <br>
 
@@ -122,7 +129,17 @@ $ http://localhost:8080/fornecedor/v1/{💲id}
 $ http://localhost:8080/fornecedor/v1/{💲id}
 ```
 
+
+<br>
+
+
+## ⚠️ Observação
+
+Os exemplos acima são ilustrativos. Por favor, consulte a documentação da API para verificar os verbos HTTP disponíveis para cada endpoint.
+
+
 <br> 
+
 
 ## 🖥️ Desenvolvido por:
 
