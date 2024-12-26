@@ -16,11 +16,12 @@
 
 * Intellij
 
-* Java 17
+* Java 21
 
 * Postgres 16
 
 * Spring Boot 3.3.5
+
 
   <br> 
 
@@ -34,6 +35,7 @@
 $ http://localhost:8080/swagger-ui/index.html#/
 ```
 
+
 <br>
 
 
@@ -41,7 +43,9 @@ $ http://localhost:8080/swagger-ui/index.html#/
 
 Para que a API consiga se conectar ao Banco de Dados, é necessário que o arquivo `vr.properties` esteja localizado no diretório home do seu computador, dentro da pasta `vr`, funcionando tanto em sistemas Linux quanto Windows.
 
+
  <br>
+
 
 🌐 Windows
 ```bash
@@ -55,7 +59,9 @@ $ C:\Users\<nome-do-usuario>\vr\vr.properties
 $ /home/<nome-do-usuario>/vr/vr.properties
 ```
 
+
  <br>
+
 
 **Baixe o arquivo `vr.properties` e coloque-o no diretório apropriado.**
 
@@ -85,44 +91,55 @@ $ http://localhost:8080/auth
 }
 ```
 
+
  <br>
 
 
-## 🔶 Principais Métodos Disponíveis
+## 🔷 Principais Métodos Disponíveis
 
  <br> 
 
 🔹 GET
 ```bash
-# Retorna todos os registros.
+# Retorna todos os registros
 $ http://localhost:8080/fornecedor/v1
 ```
 
 🔹 GET
 ```bash
-# Retorna o registro pelo ID.
+# Retorna o registro pelo ID
 $ http://localhost:8080/fornecedor/v1/{💲id}
 ```
 
 🔹 POST
 ```bash
-# Salva um registro.
+# Salva um registro
 $ http://localhost:8080/fornecedor/v1
 ```
 
 🔹 PATCH
 ```bash
-# Atualiza um registro.
+# Atualiza um registro
 $ http://localhost:8080/fornecedor/v1/{💲id}
 ```
 
 🔹 DELETE
 ```bash
-# Deleta um registro.
+# Deleta um registro
 $ http://localhost:8080/fornecedor/v1/{💲id}
 ```
 
+
+<br>
+
+
+## ⚠️ Observação
+
+Os exemplos acima são ilustrativos. Por favor, consulte a documentação da API para verificar os verbos HTTP disponíveis para cada endpoint.
+
+
 <br> 
+
 
 ## 🖥️ Desenvolvido por:
 
