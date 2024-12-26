@@ -1,0 +1,133 @@
+{
+  "id": 1,
+  "razaoSocial": "VR SOFTWARE",
+  "nomeFantasia": "VR SOFTWARE",
+  "endereco": "AVENIDA ZELIA",
+  "bairro": "PARQUE DOS CAMARGOS",
+  "municipio": {
+    "id": 3505708,
+    "descricao": "BARUERI"
+  },
+  "cep": 6436000,
+  "estado": {
+    "id": 35,
+    "descricao": "SAO PAULO"
+  },
+  "telefone": "(00) 00000000",
+  "tipoInscricao": {
+    "id": 0,
+    "descricao": "JURIDICA"
+  },
+  "inscricaoEstadual": "206.632.083.116",
+  "cnpj": 8076873000190,
+  "revenda": false,
+  "situacaoCadastro": {
+    "id": 1,
+    "descricao": "ATIVO"
+  },
+  "tipoPagamento": {
+    "id": 0,
+    "descricao": "CARTAO DEBITO"
+  },
+  "numeroDoc": 0,
+  "pedidoMinimoQtd": 0,
+  "pedidoMinimoValor": 0.00,
+  "serienf": "1",
+  "descontoFunRural": false,
+  "senha": 281039,
+  "tipoRecebimento": {
+    "id": 1,
+    "descricao": "CARTEIRA"
+  },
+  "agencia": ".",
+  "digitoAgencia": "",
+  "conta": ".",
+  "digitoConta": "",
+  "banco": null,
+  "enderecoCobranca": "",
+  "bairroCobranca": "",
+  "cepCobranca": 0,
+  "municipioCobranca": null,
+  "estadoCobranca": null,
+  "bloqueado": false,
+  "tipoMotivoFornecedor": null,
+  "datasIntegra": null,
+  "tipoEmpresa": {
+    "id": 4,
+    "descricao": "LUCRO REAL ESTIMADO",
+    "tipoCrt": {
+      "id": 3,
+      "descricao": "REGIME NORMAL"
+    }
+  },
+  "inscricaoSuframa": "0",
+  "utilizaIva": true,
+  "familiaFornecedor": null,
+  "tipoInspecao": null,
+  "numeroInspecao": 0,
+  "tipoTroca": null,
+  "tipoFornecedor": {
+    "id": 0,
+    "descricao": "INDUSTRIA"
+  },
+  "contaContabilFinanceiro": {
+    "id": 1,
+    "descricao": "CAIXA",
+    "contaContabilFiscal": {
+      "id": 5,
+      "descricao": "CONTA CONTABIL FISCAL 0"
+    },
+    "transferencia": false,
+    "historicoPadrao": {
+      "id": 0,
+      "descricao": "HISTORICO PADRAO"
+    },
+    "contabiliza": false
+  },
+  "utilizaNfe": true,
+  "dataCadastro": "2011-04-18",
+  "utilizaConferencia": false,
+  "numero": "586",
+  "permiteNfSemPedido": true,
+  "modeloNf": "55",
+  "emiteNf": true,
+  "tipoNegociacao": 0,
+  "utilizaCrossDocking": false,
+  "lojaCrossDocking": {
+    "id": 1,
+    "descricao": "SP-LOJA 01"
+  },
+  "observacao": "::CHARACTER VARYING",
+  "pais": {
+    "id": 1058,
+    "descricao": "BRASIL"
+  },
+  "inscricaoMunicipal": "",
+  "contaContabilFiscalPassivo": null,
+  "numeroCobranca": "0",
+  "complemento": "",
+  "complementoCobranca": "",
+  "contaContabilFiscalAtivo": null,
+  "utilizaEdi": false,
+  "tipoRegraVencimento": -1,
+  "nfEmitidaPostoFiscal": false,
+  "tipoIndicadorie": {
+    "id": 1,
+    "descricao": "CONTRIBUINTE ICMS"
+  },
+  "indicativoCprb": null,
+  "utilizaProdepe": false,
+  "tipoNegociacaoCompra": {
+    "id": 2,
+    "descricao": "DATA ENTREGA"
+  },
+  "tipoCustoDevolucaoTroca": {
+    "id": 2,
+    "descricao": "CUSTO ULTIMA ENTRADA"
+  },
+  "alteradoPaf": null,
+  "cpfProdutorRural": 0,
+  "indicativoSenar": null,
+  "antecipacaoPagamento": false,
+  "percentualCreditoIcmssn": null
+}

@@ -1,33 +1,52 @@
 package br.com.integracaoapi.repository;
 
+import br.com.integracaoapi.config.AbstractTestConfiguration;
+import br.com.integracaoapi.model.entity.Fornecedor;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.EntityNotFoundException;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.domain.Pageable;
-import org.springframework.test.context.ActiveProfiles;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@DataJpaTest
-@ActiveProfiles("test")
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class FornecedorRepositoryTest {
+@SpringBootTest
+@Import(AbstractTestConfiguration.class)
+public class FornecedorRepositoryAbstractTest {
+
+    String fornecedor;
+
+    @Autowired
+    private ObjectMapper objectMapper;
 
     @Autowired
     private FornecedorRepository fornecedorRepository;
 
+    @BeforeEach
+    void setUp() throws IOException {
+        if (fornecedor == null) {
+            fornecedor = new String(Files.readAllBytes(Paths.get("src/test/resources/fornecedor/createFornecedor.json")));
+        }
+    }
+
     @Test
-    @DisplayName("Deve retornar todos os fornecedores")
+    @Order(1)
+    @DisplayName("Deve retornar todos os Fornecedores")
     void findAll() {
         var fornecedores = fornecedorRepository.findAll();
         assertThat(fornecedores).isNotEmpty();
     }
 
     @Test
-    @DisplayName("Deve retornar o fornecedorDTO informado pelo ID")
+    @Order(2)
+    @DisplayName("Deve retornar o Fornecedor informado pelo ID")
     void findFornecedorById() {
         var id = 17;
         var findFornecedor = fornecedorRepository.findById(id);
@@ -37,7 +56,8 @@ public class FornecedorRepositoryTest {
     }
 
     @Test
-    @DisplayName("Deve retornar um erro ao consultar um fornecedorDTO que não existe")
+    @Order(3)
+    @DisplayName("Deve retornar um erro ao consultar um Fornecedor que não existe")
     void findFornecedorByIdWithWrongId() {
         var id = 99999;
         var findFornecedor = fornecedorRepository.findById(id);
@@ -47,7 +67,8 @@ public class FornecedorRepositoryTest {
     }
 
     @Test
-    @DisplayName("Deve retornar todos os fornecedores com a situação cadastro ativo")
+    @Order(4)
+    @DisplayName("Deve retornar todos os Fornecedores com a Situação Cadastro ATIVO")
     void findAllBySituacaoCadastroAtivo() {
         var fornecedoresAtivos = fornecedorRepository.findAllBySituacaoCadastroDescricao("ATIVO", Pageable.unpaged());
         assertThat(fornecedoresAtivos).isNotEmpty();
@@ -58,7 +79,8 @@ public class FornecedorRepositoryTest {
     }
 
     @Test
-    @DisplayName("Deve retornar todos os fornecedores com a situação cadastro excluído")
+    @Order(5)
+    @DisplayName("Deve retornar todos os Fornecedores com a Situação Cadastro EXCLUIDO")
     void findAllBySituacaoCadastroExcluido() {
         var fornecedoresExcluidos = fornecedorRepository.findAllBySituacaoCadastroDescricao("EXCLUIDO", Pageable.unpaged());
         assertThat(fornecedoresExcluidos).isNotEmpty();
@@ -69,16 +91,29 @@ public class FornecedorRepositoryTest {
     }
 
     @Test
-    @DisplayName("Deve retornar vazio com a situação cadastro que não seja ATIVO ou EXCLUIDO")
+    @Order(6)
+    @DisplayName("Deve retornar vazio com a Situação Cadastro que não seja ATIVO ou EXCLUIDO")
     void findAllBySituacaoCadastroErrado() {
         var fornecedoresErrados = fornecedorRepository.findAllBySituacaoCadastroDescricao("TESTE", Pageable.unpaged());
         assertThat(fornecedoresErrados).isEmpty();
     }
 
     @Test
-    @DisplayName("Deve salvar um fornecedorDTO")
+    @Order(7)
+    @DisplayName("Deve salvar um Fornecedor")
     void saveFornecedor() {
-        // TODO
+        Assertions.assertDoesNotThrow(() -> {
+            assertThat(fornecedor).isNotEmpty();
 
+            var fornecedorToEntity = objectMapper.readValue(fornecedor, Fornecedor.class);
+
+            var saveFornecedor = fornecedorRepository.save(fornecedorToEntity);
+
+            assertThat(saveFornecedor).isNotNull();
+
+            var findFornecedor = fornecedorRepository.findById(saveFornecedor.getId());
+            assertThat(findFornecedor).isNotEmpty();
+            assertThat(findFornecedor.get().getId()).isEqualTo(saveFornecedor.getId());
+        });
     }
 }
