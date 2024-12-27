@@ -5,6 +5,9 @@
 # Ignorar arquivos de configuração do IntelliJ
 /.idea/
 
+# Ignorar arquivo de Build
+/dist/*.jar
+
 # Ignorar arquivos de classe Java compilados
 *.class
 
