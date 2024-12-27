@@ -65,7 +65,7 @@ $ /home/<nome-do-usuario>/vr/vr.properties
 
 **Baixe o arquivo `vr.properties` e coloque-o no diretório apropriado.**
 
-🔹 [vr.properties](src/main/resources/examples/example.properties)
+🔹 [vr.properties](dist/vr.properties)
 
 
 <br>
