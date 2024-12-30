@@ -1,16 +1,12 @@
 package br.com.integracaoapi.repository;
 
-import br.com.integracaoapi.config.JacksonConfiguration;
+import br.com.integracaoapi.AbstractRepositoryTest;
 import br.com.integracaoapi.model.entity.Fornecedor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.context.annotation.Import;
 import org.springframework.data.domain.Pageable;
-import org.springframework.test.context.ActiveProfiles;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,11 +15,8 @@ import java.nio.file.Paths;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@DataJpaTest
-@ActiveProfiles("test")
-@Import(JacksonConfiguration.class)
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class FornecedorRepositoryTest {
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class FornecedorRepositoryTest extends AbstractRepositoryTest {
 
     private String fornecedor;
 
@@ -36,13 +29,12 @@ class FornecedorRepositoryTest {
     @BeforeEach
     void setUp() throws IOException {
         if (fornecedor == null) {
-            fornecedor = new String(Files.readAllBytes(Paths.get("src/test/resources/fornecedor/createFornecedor.json")));
+            fornecedor = new String(Files.readAllBytes(Paths.get("src/test/resources/fornecedor/fornecedor.json")));
         }
     }
 
     @Test
     @Order(1)
-    @DisplayName("Deve retornar todos os Fornecedores")
     void findAll() {
         var fornecedores = fornecedorRepository.findAll();
         assertThat(fornecedores).isNotEmpty();
@@ -50,7 +42,6 @@ class FornecedorRepositoryTest {
 
     @Test
     @Order(2)
-    @DisplayName("Deve retornar o Fornecedor informado pelo ID")
     void findFornecedorById() {
         var id = 17;
         var findFornecedor = fornecedorRepository.findById(id);
@@ -61,7 +52,6 @@ class FornecedorRepositoryTest {
 
     @Test
     @Order(3)
-    @DisplayName("Deve retornar um erro ao consultar um Fornecedor que não existe")
     void findFornecedorByIdWithWrongId() {
         var id = 99999;
         var findFornecedor = fornecedorRepository.findById(id);
@@ -72,7 +62,6 @@ class FornecedorRepositoryTest {
 
     @Test
     @Order(4)
-    @DisplayName("Deve retornar todos os Fornecedores com a Situação Cadastro ATIVO")
     void findAllBySituacaoCadastroAtivo() {
         var fornecedoresAtivos = fornecedorRepository.findAllBySituacaoCadastroDescricao("ATIVO", Pageable.unpaged());
         assertThat(fornecedoresAtivos).isNotEmpty();
@@ -84,7 +73,6 @@ class FornecedorRepositoryTest {
 
     @Test
     @Order(5)
-    @DisplayName("Deve retornar todos os Fornecedores com a Situação Cadastro EXCLUIDO")
     void findAllBySituacaoCadastroExcluido() {
         var fornecedoresExcluidos = fornecedorRepository.findAllBySituacaoCadastroDescricao("EXCLUIDO", Pageable.unpaged());
         assertThat(fornecedoresExcluidos).isNotEmpty();
@@ -96,7 +84,6 @@ class FornecedorRepositoryTest {
 
     @Test
     @Order(6)
-    @DisplayName("Deve retornar vazio com a Situação Cadastro que não seja ATIVO ou EXCLUIDO")
     void findAllBySituacaoCadastroErrado() {
         var fornecedoresErrados = fornecedorRepository.findAllBySituacaoCadastroDescricao("TESTE", Pageable.unpaged());
         assertThat(fornecedoresErrados).isEmpty();
@@ -104,7 +91,6 @@ class FornecedorRepositoryTest {
 
     @Test
     @Order(7)
-    @DisplayName("Deve salvar um Fornecedor")
     void saveFornecedor() {
         Assertions.assertDoesNotThrow(() -> {
             assertThat(fornecedor).isNotEmpty();
