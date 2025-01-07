@@ -41,7 +41,7 @@ $ http://localhost:8080/swagger-ui/index.html#/
 
 ## 🐘 Banco de Dados
 
-Para que a API consiga se conectar ao Banco de Dados, é necessário que o arquivo `vr.properties` esteja localizado no diretório home do seu computador, dentro da pasta `vr`, funcionando tanto em sistemas Linux quanto Windows.
+Para que a API consiga se conectar ao Banco de Dados, é necessário que o arquivo `integracaoapi.properties` esteja localizado no diretório home do seu computador, dentro da pasta `integracaoapi`, funcionando tanto em sistemas Linux quanto Windows.
 
 
  <br>
@@ -50,13 +50,13 @@ Para que a API consiga se conectar ao Banco de Dados, é necessário que o arqui
 🌐 Windows
 ```bash
 # Caminho para Windows
-$ C:\Users\<nome-do-usuario>\vr\vr.properties
+$ C:\Users\<nome-do-usuario>\integracaoapi\integracaoapi.properties
 ```
 
 🐧 Linux
 ```bash
 # Caminho para Linux
-$ /home/<nome-do-usuario>/vr/integracaoapi.properties
+$ /home/<nome-do-usuario>/integracaoapi/integracaoapi.properties
 ```
 
 
@@ -65,7 +65,7 @@ $ /home/<nome-do-usuario>/vr/integracaoapi.properties
 
 **Baixe o arquivo `integracaoapi.properties` e coloque-o no diretório apropriado.**
 
-🔹 [vr.properties](dist/integracaoapi.properties)
+🔹 [integracaoapi.properties](dist/integracaoapi.properties)
 
 
 <br>
