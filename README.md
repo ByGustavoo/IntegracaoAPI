@@ -63,7 +63,7 @@ $ /home/<nome-do-usuario>/vr/integracaoapi.properties
  <br>
 
 
-**Baixe o arquivo `vr.properties` e coloque-o no diretório apropriado.**
+**Baixe o arquivo `integracaoapi.properties` e coloque-o no diretório apropriado.**
 
 🔹 [vr.properties](dist/integracaoapi.properties)
 
