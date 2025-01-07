@@ -8,7 +8,7 @@ import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import static org.springframework.data.web.config.EnableSpringDataWebSupport.PageSerializationMode.VIA_DTO;
 
 @SpringBootApplication
-@PropertySource("file:${user.home}/vr/vr.properties")
+@PropertySource("file:${user.home}/integracaoapi/integracaoapi.properties")
 @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO)
 public class IntegracaoApplication {
 

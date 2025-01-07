@@ -15,7 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "autenticacao", schema = "seguranca")
+@Table(name = "autenticacao", schema = "integracaoapi")
 public class Autenticacao implements UserDetails {
 
     @Id
