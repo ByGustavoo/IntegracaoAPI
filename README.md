@@ -41,7 +41,7 @@ $ http://localhost:8080/swagger-ui/index.html#/
 
 ## 🐘 Banco de Dados
 
-Para que a API consiga se conectar ao Banco de Dados, é necessário que o arquivo `integracaoapi.properties` esteja localizado no diretório home do seu computador, dentro da pasta `integracaoapi`, funcionando tanto em sistemas Linux quanto Windows.
+Para que a API consiga se conectar ao Banco de Dados, é necessário que o arquivo `integracaoapi.properties` esteja localizado no diretório `home` do seu computador, dentro da pasta `integracaoapi`, funcionando tanto em sistemas Linux quanto Windows.
 
 
  <br>
