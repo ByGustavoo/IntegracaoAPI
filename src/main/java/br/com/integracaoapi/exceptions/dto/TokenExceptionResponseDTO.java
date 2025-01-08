@@ -29,6 +29,6 @@ public class TokenExceptionResponseDTO {
             403,
             "Forbidden",
             "Token Inválido!",
-            "O Token de acesso está inválido! Por favor, autentique-se para obter um Token de acesso válido!"
+            "O Token de acesso está inválido ou ausente! Por favor, autentique-se para obter um Token de acesso válido!"
     );
 }

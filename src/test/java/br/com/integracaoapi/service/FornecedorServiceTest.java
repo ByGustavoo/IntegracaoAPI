@@ -1,23 +1,17 @@
 package br.com.integracaoapi.service;
 
+import br.com.integracaoapi.config.AbstractTest;
 import br.com.integracaoapi.model.dto.FornecedorDTO;
 import br.com.integracaoapi.repository.FornecedorRepository;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.domain.Pageable;
-import org.springframework.test.context.ActiveProfiles;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DataJpaTest
-@ActiveProfiles("test")
 @Import(FornecedorService.class)
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class FornecedorServiceTest {
+class FornecedorServiceTest extends AbstractTest {
 
     @Autowired
     private FornecedorService fornecedorService;
