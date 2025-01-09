@@ -17,7 +17,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 import java.io.IOException;
 
 @Component
@@ -37,17 +36,14 @@ public class SecurityFilter extends OncePerRequestFilter {
         try {
             var token = getToken(request);
 
-            if (token == null) {
-                invalidTokenResponseDTO(response);
-                return;
-            }
+            if (token != null) {
+                var subject = tokenService.getSubject(token);
+                var usuario = autenticacaoRepository.findByUsername(subject);
 
-            var subject = tokenService.getSubject(token);
-            var usuario = autenticacaoRepository.findByUsername(subject);
-
-            if (usuario != null) {
-                var authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+                if (usuario != null) {
+                    var authentication = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                }
             }
 
             filterChain.doFilter(request, response);

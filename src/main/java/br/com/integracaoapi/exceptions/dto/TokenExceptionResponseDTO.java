@@ -31,4 +31,11 @@ public class TokenExceptionResponseDTO {
             "Token Inválido!",
             "O Token de acesso está inválido ou ausente! Por favor, autentique-se para obter um Token de acesso válido!"
     );
+
+    public static TokenExceptionResponseDTO requestWithoutTokenResponseDTO = new TokenExceptionResponseDTO(
+            403,
+            "Forbidden",
+            "Token Inválido!",
+            "O Token de acesso está ausente! Por favor, autentique-se para obter um Token de acesso válido!"
+    );
 }

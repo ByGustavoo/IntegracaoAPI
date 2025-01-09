@@ -54,7 +54,7 @@ public class AutenticacaoService implements UserDetailsService {
         var findUser = autenticacaoRepository.findByUsername(username);
 
         if (findUser != null) {
-            throw new RuntimeException("ERRO! Esse usuário já está cadastrado!");
+            throw new RuntimeException("Esse usuário já está cadastrado!");
         }
     }
 

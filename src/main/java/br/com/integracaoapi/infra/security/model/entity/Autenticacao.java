@@ -1,14 +1,14 @@
 package br.com.integracaoapi.infra.security.model.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -23,12 +23,13 @@ public class Autenticacao implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull
-    @Size(max = 50)
-    @Column(name = "username", length = 50, nullable = false)
+    @Email
+    @NotBlank
+    @Size(max = 255)
+    @Column(name = "username", nullable = false)
     private String username;
 
-    @NotNull
+    @NotBlank
     @Column(name = "password", columnDefinition = "TEXT", nullable = false)
     private String password;
 

@@ -29,8 +29,8 @@ public class AutenticacaoController {
     private AuthenticationManager authenticationManager;
 
     @Hidden
-    @PostMapping("/save")
     @Transactional
+    @PostMapping("/save")
     public ResponseEntity<AuthenticationResponseDTO> signUp(@RequestBody @Valid AutenticacaoDTO autenticacaoDTO) {
         return ResponseEntity.ok(autenticacaoService.saveAuthentication(autenticacaoDTO));
     }

@@ -1,7 +1,8 @@
 package br.com.integracaoapi.infra.security.model.dto;
 
 import br.com.integracaoapi.infra.security.model.entity.Autenticacao;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,11 +18,12 @@ public class AutenticacaoDTO {
 
     private Integer id;
 
-    @NotNull
-    @Size(max = 50)
+    @Email
+    @Size(max = 255)
+    @NotBlank(message = "{username.obrigatorio}")
     private String username;
 
-    @NotNull
+    @NotBlank(message = "{password.obrigatorio}")
     private String password;
 
     public AutenticacaoDTO(Autenticacao autenticacao) {
