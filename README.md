@@ -86,8 +86,8 @@ $ http://localhost:8080/auth
 ```bash
 # Exemplo de requisição
 {
-    "username": "VRSoftware",
-    "password": "integracao_@VRSoftware"
+    "username": "email@dominio.com",
+    "password": "senha"
 }
 ```
 
