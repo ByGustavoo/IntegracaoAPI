@@ -93,10 +93,6 @@
   "emiteNf": true,
   "tipoNegociacao": 0,
   "utilizaCrossDocking": false,
-  "lojaCrossDocking": {
-    "id": 1,
-    "descricao": "SP-LOJA 01"
-  },
   "observacao": "::CHARACTER VARYING",
   "pais": {
     "id": 1058,
