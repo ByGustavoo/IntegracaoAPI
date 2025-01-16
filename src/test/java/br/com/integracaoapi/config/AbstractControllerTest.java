@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -39,11 +38,6 @@ public abstract class AbstractControllerTest {
         mockMvc.perform(patch(url)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(requestBody))
-                .andExpect(status().isOk());
-    }
-
-    protected void testDelete(String url) throws Exception {
-        mockMvc.perform(delete(url))
                 .andExpect(status().isOk());
     }
 }

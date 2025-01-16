@@ -5,19 +5,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 @SpringBootTest
-@Transactional
 class FornecedorControllerTest extends AbstractControllerTest {
-
-    // TODO
-    // Criar um application.yml para todos os Profiles - [dev, test, prod]
-    // Testar
 
     private String fornecedor;
 
@@ -57,10 +50,4 @@ class FornecedorControllerTest extends AbstractControllerTest {
     void updateFornecedor() throws Exception {
         testPatch("/fornecedor/v1/27", fornecedor);
     }
-
-//    @Test
-//    @Order(6)
-//    void deleteFornecedor() throws Exception {
-//        testDelete("/fornecedor/v1/130");
-//    }
 }
