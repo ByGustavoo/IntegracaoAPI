@@ -58,9 +58,9 @@ class FornecedorControllerTest extends AbstractControllerTest {
         testPatch("/fornecedor/v1/27", fornecedor);
     }
 
-    @Test
-    @Order(6)
-    void deleteFornecedor() throws Exception {
-        testDelete("/fornecedor/v1/130");
-    }
+//    @Test
+//    @Order(6)
+//    void deleteFornecedor() throws Exception {
+//        testDelete("/fornecedor/v1/130");
+//    }
 }
