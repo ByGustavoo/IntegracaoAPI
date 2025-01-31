@@ -6,21 +6,18 @@ import br.com.integracaoapi.repository.FornecedorRepository;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Import;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.test.context.ActiveProfiles;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
-@ActiveProfiles("test")
-@Import(FornecedorService.class)
+@SpringBootTest
 class FornecedorServiceTest extends AbstractTest {
 
     @Autowired
-    private FornecedorService fornecedorService;
+    FornecedorService fornecedorService;
 
     @Autowired
-    private FornecedorRepository fornecedorRepository;
+    FornecedorRepository fornecedorRepository;
 
     @Test
     @Order(1)
@@ -80,7 +77,7 @@ class FornecedorServiceTest extends AbstractTest {
     @Test
     @Order(6)
     void deleteFornecedor() {
-        var id = 17;
+        int id = 213;
         var fornecedorExcluido = fornecedorService.deleteFornecedor(id);
 
         assertThat(fornecedorExcluido).isNotNull();

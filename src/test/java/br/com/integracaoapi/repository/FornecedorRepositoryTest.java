@@ -1,34 +1,30 @@
 package br.com.integracaoapi.repository;
 
 import br.com.integracaoapi.config.AbstractTest;
-import br.com.integracaoapi.config.JacksonConfiguration;
 import br.com.integracaoapi.model.entity.Fornecedor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.context.annotation.Import;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.test.context.ActiveProfiles;
-
+import org.springframework.transaction.annotation.Transactional;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@ActiveProfiles("test")
-@Import(JacksonConfiguration.class)
+@SpringBootTest
 class FornecedorRepositoryTest extends AbstractTest {
 
-    private String fornecedor;
+    String fornecedor;
 
     @Autowired
-    private ObjectMapper objectMapper;
+    ObjectMapper objectMapper;
 
     @Autowired
-    private FornecedorRepository fornecedorRepository;
+    FornecedorRepository fornecedorRepository;
 
     @BeforeEach
     void setUp() throws IOException {
@@ -66,6 +62,7 @@ class FornecedorRepositoryTest extends AbstractTest {
 
     @Test
     @Order(4)
+    @Transactional
     void findAllBySituacaoCadastroAtivo() {
         var fornecedoresAtivos = fornecedorRepository.findAllBySituacaoCadastroDescricao("ATIVO", Pageable.unpaged());
         assertThat(fornecedoresAtivos).isNotEmpty();
@@ -77,6 +74,7 @@ class FornecedorRepositoryTest extends AbstractTest {
 
     @Test
     @Order(5)
+    @Transactional
     void findAllBySituacaoCadastroExcluido() {
         var fornecedoresExcluidos = fornecedorRepository.findAllBySituacaoCadastroDescricao("EXCLUIDO", Pageable.unpaged());
         assertThat(fornecedoresExcluidos).isNotEmpty();
@@ -99,9 +97,9 @@ class FornecedorRepositoryTest extends AbstractTest {
         Assertions.assertDoesNotThrow(() -> {
             assertThat(fornecedor).isNotEmpty();
 
-            var fornecedorToEntity = objectMapper.readValue(fornecedor, Fornecedor.class);
+            var fornecedorEntity = objectMapper.readValue(fornecedor, Fornecedor.class);
 
-            var saveFornecedor = fornecedorRepository.save(fornecedorToEntity);
+            var saveFornecedor = fornecedorRepository.save(fornecedorEntity);
 
             assertThat(saveFornecedor).isNotNull();
 

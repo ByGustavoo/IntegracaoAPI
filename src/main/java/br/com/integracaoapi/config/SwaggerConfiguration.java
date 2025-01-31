@@ -16,7 +16,7 @@ public class SwaggerConfiguration {
             A Integração API foi desenvolvida para proporcionar uma interação simplificada e eficiente com os dados
             armazenados no Banco de Dados. A API oferece funcionalidades completas para gerenciamento dos dados,
             incluindo operações de criação, leitura, atualização e exclusão (CRUD). Além disso, incorpora autenticação
-            e autorização baseadas em tokens JWT, assegurando a proteção das operações e controlando o acesso aos
+            e autorização baseadas em Tokens JWT, assegurando a proteção das operações e controlando o acesso aos
             endpoints disponíveis.
             """;
 

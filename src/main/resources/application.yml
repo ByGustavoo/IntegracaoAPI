@@ -1,0 +1,56 @@
+logging:
+  config: classpath:logback.xml
+
+spring:
+  profiles:
+    active: dev
+
+    jpa:
+      show-sql: true
+
+  flyway:
+    enable: true
+    schemas: integracaoapi
+    baselineOnMigrate: true
+
+server:
+  port: 8080
+
+  error:
+    include-stacktrace: never
+
+  datasource:
+    url: jdbc:postgresql://${DATABASE_IP}:${DATABASE_PORT}/${DATABASE_NAME}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+
+integracao:
+  api:
+    security:
+      jwt:
+        secret: ${SECRET:$2a$10$2hB468bxn$!RijQnluF5kcuJzwO&HaJvtxfsQKueGns%XbZ13kKw4hG2x$iKx9vY#p4Ts}
+
+springdoc:
+  swagger-ui:
+    tags-sorter: alpha
+    operations-sorter: alpha
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  jpa:
+    show-sql: true
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  jpa:
+    show-sql: false

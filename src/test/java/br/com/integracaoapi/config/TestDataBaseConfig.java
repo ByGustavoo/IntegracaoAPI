@@ -2,15 +2,12 @@ package br.com.integracaoapi.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-
 import javax.sql.DataSource;
 
-@Configuration
-@Profile({"dev", "prod"})
-public class DataBaseConfiguration {
+@TestConfiguration
+public class TestDataBaseConfig {
 
     @Value("${DATABASE_IP}")
     private String ip;
@@ -24,7 +21,7 @@ public class DataBaseConfiguration {
     @Value("${DATABASE_PORT}")
     private String porta;
 
-    @Value("${DATABASE_NAME}")
+    @Value("${DATABASE_TEST_NAME}")
     private String nome;
 
     private String getUrl() {
@@ -32,7 +29,7 @@ public class DataBaseConfiguration {
     }
 
     @Bean
-    public DataSource dataSource() {
+    public DataSource dataSourceTest() {
         DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
 
         dataSourceBuilder.driverClassName("org.postgresql.Driver");
