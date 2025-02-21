@@ -5,13 +5,13 @@ spring:
   profiles:
     active: dev
 
-    jpa:
-      show-sql: true
+  jpa:
+    show-sql: true
 
   flyway:
-    enable: true
+    enabled: true
     schemas: integracaoapi
-    baselineOnMigrate: true
+    baseline-on-migrate: true
 
 server:
   port: 8080
@@ -44,6 +44,10 @@ spring:
 
   jpa:
     show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
 
 ---
 

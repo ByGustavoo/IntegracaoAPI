@@ -15,10 +15,10 @@ import org.springframework.stereotype.Service;
 public class FornecedorService {
 
     @Autowired
-    private FornecedorRepository fornecedorRepository;
+    FornecedorRepository fornecedorRepository;
 
     @Autowired
-    private SituacaoCadastroRepository situacaoCadastroRepository;
+    SituacaoCadastroRepository situacaoCadastroRepository;
 
     public Page<FornecedorDTO> findAll(Pageable pageable) {
         return fornecedorRepository.findAll(pageable).map(FornecedorDTO::new);
